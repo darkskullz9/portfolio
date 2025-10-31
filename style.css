@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@import url('./fonts/Neotrax.ttf');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+h2 {
+    font-family: 'Rajdhani', sans-serif;
+    color: #000000;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo, .logo a {
+    font-family: 'Neotrax', sans-serif;
+    color: #221537;
+}
+
+header .logo, footer .logo {
+    font-size: 2.4em;
+}
+
+#hero_section .logo {
+    font-size: 6.4em;
+}
+
+#hero_section h2 {
+    font-size: 3.2em;
+}
