@@ -2,42 +2,221 @@
 
 @import url('./fonts/Neotrax.ttf');
 
-* {
+:root {
+    --primary-color: #E3DAF1;
+    --secondary-color: #221537;
+    --accent-color: #9775FE;
+    --text-color: #000000;
+}
+
+/* ==== BASE / RESET ==== */
+
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1 {
+    font-family: Neotrax, sans-serif;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 4rem;
 }
 
 h2 {
     font-family: 'Rajdhani', sans-serif;
-    color: #000000;
     font-weight: 600;
-}
-
-h3 {
-    font-family: 'Inter', sans-serif;
-    color: #333333;
-    font-weight: 500;
+    color: var(--secondary-color);
+    font-size: 2rem;
 }
 
 a {
+    color: inherit;
     text-decoration: none;
 }
 
-.logo, .logo a {
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.section_title {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* ==== HEADER & NAVIGATION ==== */
+
+.header {
+    width: 100vw;
+    padding: 0.5em 1.5em;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
     font-family: 'Neotrax', sans-serif;
-    color: #221537;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
 }
 
-header .logo, footer .logo {
-    font-size: 2.4em;
+.main_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#hero_section .logo {
-    font-size: 6.4em;
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    gap: 1rem;
+    padding: 0.5rem 0.5rem;
 }
 
-#hero_section h2 {
-    font-size: 3.2em;
+.nav_link {
+    padding: 0;
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 50%;
+    font-size: 1rem;
+    font-weight: 500;
+    display: inline-block;
+    border-left: 2px solid transparent;
+    transition: 200ms ease;
+}
+
+
+.nav_link:hover {
+    color: var(--text-color);
+    opacity: 100%;
+    border-left: 2px solid var(--secondary-color);
+    padding-left: 0.5rem;
+    transition: opacity 250ms ease-in-out;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+    width: 100vw;
+    padding: 1em 1.5em;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.footer_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer .logo {
+    font-family: 'Neotrax', sans-serif;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.footer_socials {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer_copy {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    opacity: 60%;
+}
+
+.socials_list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.socials_list li {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.social_link {
+    display: inline-block;
+    transition: transform 200ms ease-in-out;
+}
+
+.social_icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.social_link:hover {
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+}
+
+/* ==== HERO SECTION ==== */
+
+#hero_section {
+    width: 100vw;
+    height: 100vh;
+    background: url('./images/hero_background.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5em;
+}
+
+/* ==== ABOUT SECTION ==== */
+
+#about_section {
+    width: 100vw;
+    height: 100vh;
+    padding: 4rem 2.5em;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+
+
+.about_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about_text {
+    max-width: 800px;
+    text-align: left;
 }

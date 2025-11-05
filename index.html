@@ -9,12 +9,12 @@
 
     <body>
         <header class="header">
-            <h1 class="logo">
-                <a href="#hero_section">Darkskullz9</a>
-            </h1>
+            <a href="#hero_section">
+                <h1 class="logo">Darkskullz9</h1>
+            </a>
 
             <nav class="main_nav">
-                <ul>
+                <ul class="navbar">
                     <li><a href="#about_section" class="nav_link">À propos</a></li>
                     <li><a href="#projects_section" class="nav_link">Projets</a></li>
                     <li><a href="#skills_section" class="nav_link">Compétences</a></li>
@@ -32,19 +32,21 @@
             </section>
 
             <section id="about_section">
-                <h2>À propos</h2>
-                <p> 
-                    Salut, moi c’est Darkskullz9.<br />
-                    
-                    J’ai longtemps appris à coder de façon assez... “décousue” : tutos, frameworks, projets commencés... puis laissés de côté. À force de vouloir “tout tester”, je me suis souvent retrouvé à ne pas vraiment comprendre ce que je faisais , ni à finir mes projets. <br />
-                    
-                    Aujourd’hui, étudiant en BTS SIO, je reprends tout depuis la base pour vraiment maîtriser chaque étape : HTML, CSS, un peu de JS, design, structure... <br />
-                    Mon objectif progresser avec rigueur et construire des projets complets dont je suis fier - d’où ce nouveau portfolio, pensé comme un vrai terrain d’apprentissage et d’expérimentation.<br />
-                    
-                    Ici tu trouveras mes avancées réelles, sans “cheat code” ni version parfaite, juste une évolution de développeur web (comme un Pokémon).<br />
-                    
-                    Curiosité, passion, envie de partager - c’est ça qui guide ma démarche.
-                </p>
+                <h2 class="section_title">À propos</h2>
+                <div class="about_content">
+                    <p class="about_text">
+                        Salut, moi c’est Darkskullz9.<br />
+                        
+                        J’ai longtemps appris à coder de façon assez... “décousue” : tutos, frameworks, projets commencés... puis laissés de côté. À force de vouloir “tout tester”, je me suis souvent retrouvé à ne pas vraiment comprendre ce que je faisais , ni à finir mes projets. <br />
+                        
+                        Aujourd’hui, étudiant en BTS SIO, je reprends tout depuis la base pour vraiment maîtriser chaque étape : HTML, CSS, un peu de JS, design, structure... <br />
+                        Mon objectif progresser avec rigueur et construire des projets complets dont je suis fier - d’où ce nouveau portfolio, pensé comme un vrai terrain d’apprentissage et d’expérimentation.<br />
+                        
+                        Ici tu trouveras mes avancées réelles, sans “cheat code” ni version parfaite, juste une évolution de développeur web (comme un Pokémon).<br />
+                        
+                        Curiosité, passion, envie de partager - c’est ça qui guide ma démarche.
+                    </p>
+                </div>
             </section>
 
             <section id="projects_section">
@@ -189,34 +191,38 @@
             </section>
         </main>
         <footer class="footer">
-            <h1 class="logo">
-                <a href="#hero_section">Darkskullz9</a>
-            </h1>
+            <div class="footer_links">
+                <a href="#hero_section">
+                    <h1 class="logo">Darkskullz9</h1>
+                </a>
 
-            <nav class="footer_nav">
-                <ul>
-                    <li><a href="#about_section" class="nav_link">À propos</a></li>
-                    <li><a href="#projects_section" class="nav_link">Projets</a></li>
-                    <li><a href="#skills_section" class="nav_link">Compétences</a></li>
-                    <li><a href="#contact_section" class="nav_link">Contact</a></li>
+                <nav class="footer_nav">
+                    <ul class="navbar">
+                        <li><a href="#about_section" class="nav_link">À propos</a></li>
+                        <li><a href="#projects_section" class="nav_link">Projets</a></li>
+                        <li><a href="#skills_section" class="nav_link">Compétences</a></li>
+                        <li><a href="#contact_section" class="nav_link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="footer_socials">
+                <p class="footer_copy">Portfolio &copy; 2025 Darkskullz9. Tous droits réservés.</p>
+
+                <ul class="socials_list">
+                    <li>
+                        <a href="https://github.com/darkskullz9" class="social_link">
+                            <img src="./images/icons/github.svg" alt="GitHub" class="social_icon" />
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.instagram.com/darkskullz9" class="social_link">
+                            <img src="./images/icons/instagram.svg" alt="Instagram" class="social_icon" />
+                        </a>
+                    </li>
                 </ul>
-            </nav>
-
-            <ul>
-                <li>
-                    <a href="https://github.com/darkskullz9" class="social_link">
-                        <img src="./images/icons/github.svg" alt="GitHub" class="social_icon" />
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://www.instagram.com/darkskullz9" class="social_link">
-                        <img src="./images/icons/instagram.svg" alt="Instagram" class="social_icon" />
-                    </a>
-                </li>
-            </ul>
-
-            <p>Portfolio &copy; 2025 Darkskullz9. Tous droits réservés.</p>
+            </div>
         </footer>
     </body>
 </html>
