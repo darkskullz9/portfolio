@@ -50,57 +50,98 @@
             </section>
 
             <section id="projects_section">
-                <h2>Mes projets</h2>
-                <ul>
-                    <li class="card">
-                        <img src="./images/portfolio.png" alt="Aperçu du projet Portfolio" class="project_thumbnail"/>
+                <h2 class="section_title">Mes projets</h2>
+                <div class="projects_content">
+                    <ul class="projects_grid">
+                        <li class="card">
+                            <img src="./images/portfolio.png" alt="Aperçu du projet Portfolio" class="card_thumbnail"/>
 
-                        <h3 class="project_title">Portfolio - Site vitrine personnel</h3> <br />
+                            <div class="card_text">
+                                <h3 class="project_title">Portfolio - Site vitrine personnel</h3>
 
-                        <p class="project_description">
-                            Projet évolutif&nbsp;: j'ai posé la structure HTML de base et je l'enrichis au fur et à mesure. <br />
-                            Les prochaines étapes : amélioration du design CSS, ajout de sections, optimisation mobile, mise en ligne.
-                            <span class="badge">En cours</span>
-                        </p>
+                                <p class="project_description">
+                                    Projet évolutif&nbsp;: j'ai posé la structure HTML de base et je l'enrichis au fur et à mesure. <br />
+                                    Les prochaines étapes : amélioration du design CSS, ajout de sections, optimisation mobile, mise en ligne. <br />
+                                </p>
+                            </div>
 
-                        <div class="tags">HTML, CSS</div>
+                            <div class="card_status_btn">
+                                <span class="badge">En cours</span>
 
-                        <a href="#hero_section">Voir le site</a>
-                    </li>
+                                <div class="tags">
+                                    <ul>
+                                        <li class="html_tag">HTML</li>
+                                        <li class="css_tag">CSS</li>
+                                    </ul>
+                                </div>
 
-                    <li class="card">
-                        <img src="./images/dj_skullz_v1.png" alt="Aperçu du site DJ Skullz (v1.0)" class="project_thumbnail"/>
+                                <button class="project_link_btn">
+                                    <a href="#hero_section" class="project_link">Voir le site</a>
+                                </button>
+                            </div>
+                        </li>
 
-                        <h3 class="project_title">DJ Skullz - Site vitrine pour DJ (v1.0)</h3> <br />
+                        <li class="card">
+                            <img src="./images/dj_skullz_v1.png" alt="Aperçu du site DJ Skullz (v1.0)" class="card_thumbnail"/>
 
-                        <p class="project_description">
-                            Site réalisé en No-Code : prototype créé avec Super.so pour une mise en page rapide. <br />
-                            Inclut page d’accueil, lecteur audio intégré (SoundCloud/YouTube/Spotify/Beatstars) et formulaire simple. <br />
-                            Statut : maquette et contenu en place, optimisation mobile et tests de formulaire en cours.  <br />
-                            <span class="badge">Terminé, En ligne</span>
-                        </p>
+                            <div class="card_text">
+                                <h3 class="project_title">DJ Skullz - Site vitrine pour DJ (v1.0)</h3>
 
-                        <div class="tags">No-Code, Super.so</div>
-                        
-                        <a href="https://djskullz.super.site/">Voir le site</a>
-                    </li>
+                                <p class="project_description">
+                                    Site réalisé en No-Code : prototype créé avec Super.so pour une mise en page rapide. <br />
+                                    Inclut page d’accueil, lecteur audio intégré (SoundCloud/YouTube/Spotify/Beatstars) et formulaire simple. <br />
+                                    Statut : maquette et contenu en place, optimisation mobile et tests de formulaire en cours. <br />
+                                </p>
+                                
+                            </div>
 
-                    <li class="card">
-                        <img src="./images/dj_skullz_v2.png" alt="Maquette de la nouvelle version du site DJ Skullz" class="project_thumbnail"/>
+                            <div class="card_status_btn">
+                                <span class="badge">Terminé, En ligne</span>
 
-                        <h3 class="project_title">DJ Skullz - Site vitrine et booking pour DJ (v2)</h3> <br />
+                                <div class="tags">
+                                    <ul>
+                                        <li class="no_code_tag">No-Code</li>
+                                        <li class="super_so_tag">Super.so</li>
+                                    </ul>
+                                </div>
 
-                        <p class="project_description">
-                            Site en cours de développement : maquette réalisée sur Figma. <br />
-                            Prochaines étapes : intégration HTML/CSS, ajout de fonctionnalités JS. <br />
-                            <span class="badge">En cours</span>
-                        </p>
+                                <button class="project_link_btn">
+                                    <a href="https://djskullz.super.site/" class="project_link"> Voir le site </a>
+                                </button>                                
+                            </div>
+                        </li>
 
-                        <div class="tags">Figma, HTML, CSS, JavaScript</div>
+                        <li class="card">
+                            <img src="./images/dj_skullz_v2.png" alt="Maquette de la nouvelle version du site DJ Skullz" class="card_thumbnail"/>
 
-                        <a href="#" class="project_link">Voir sur Figma</a>
-                    </li>
-                </ul>
+                            <div class="card_text">
+                                <h3 class="project_title">DJ Skullz - Site vitrine (v2)</h3>
+
+                                <p class="project_description">
+                                    Site en cours de développement : maquette réalisée sur Figma. <br />
+                                    Prochaines étapes : intégration HTML/CSS, ajout de fonctionnalités JS. <br />
+                                </p>
+                            </div>
+
+                            <div class="card_status_btn">
+                                <span class="badge">En cours</span>
+                                
+                                <div class="tags">
+                                    <ul>
+                                        <li class="figma_tag">Figma</li>
+                                        <li class="html_tag">HTML</li>
+                                        <li class="css_tag">CSS</li>
+                                        <li class="js_tag">JavaScript</li>
+                                    </ul>
+                                </div>
+
+                                <button class="project_link_btn">
+                                    <a href="#" class="project_link">Voir sur Figma</a>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <section id="skills_section">
@@ -190,6 +231,7 @@
                 </form>
             </section>
         </main>
+        
         <footer class="footer">
             <div class="footer_links">
                 <a href="#hero_section">

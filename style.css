@@ -7,6 +7,15 @@
     --secondary-color: #221537;
     --accent-color: #9775FE;
     --text-color: #000000;
+    --html-color: #E34C26;
+    --css-color: #1572B6;
+    --js-color: #F7DF1E;
+    --php-color: #8993BE;
+    --mysql-color: #4479A1;
+    --react-color: #61DAFB;
+    --vite-color: #646CFF;
+    --figma-color: #F24E1E;
+    --no_code-color: #ccc;
 }
 
 /* ==== BASE / RESET ==== */
@@ -191,7 +200,7 @@ img {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 1.5em;
+    padding: 0 2.5em;
 }
 
 /* ==== ABOUT SECTION ==== */
@@ -199,7 +208,7 @@ img {
 #about_section {
     width: 100vw;
     height: 100vh;
-    padding: 4rem 2.5em;
+    padding: 2.5rem 2.5em;
     background-color: var(--primary-color);
     display: flex;
     flex-direction: column;
@@ -219,4 +228,149 @@ img {
 .about_text {
     max-width: 800px;
     text-align: left;
+}
+
+/* ==== PROJECTS SECTION ==== */
+
+#projects_section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 2.5rem 2.5em;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+#projects_section .section_title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.projects_content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.projects_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+    gap: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 200ms ease-in-out;
+}
+
+.card_thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: var(--secondary-color) 1px solid;
+    border-radius:  4px;
+}
+
+.card_text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.project_title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+}
+
+.project_description {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.card_status_btn {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.tags ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.tags li {
+    padding: 0 0.5rem;
+    border-radius: 4px;
+}
+
+.html_tag {
+    background-color: var(--html-color);
+    color: #fff;
+}
+
+.css_tag {
+    background-color: var(--css-color);
+    color: #fff;
+}
+
+.js_tag {
+    background-color: var(--js-color);
+    color: #000;
+}
+
+.figma_tag {
+    background-color: var(--figma-color);
+    color: #fff;
+}
+
+.no_code_tag, .super_so_tag {
+    background-color: var(--no_code-color);
+    color: #000
+}
+
+.project_link {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.project_link_btn {
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+.project_link_btn:hover {
+    background-color: var(--accent-color);
+    transition: background-color 200ms ease, color 200ms ease;
+    cursor: pointer;
+}
+
+.project_link_btn:active{
+    transform: scale(0.98);
+    transition: transform 100ms ease;
 }
