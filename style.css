@@ -64,6 +64,10 @@ img {
 }
 
 .section_title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    display: flex;
+    width: 100%;
     color: var(--secondary-color);
     text-transform: uppercase;
     margin-bottom: 1rem;
@@ -373,4 +377,63 @@ img {
 .project_link_btn:active{
     transform: scale(0.98);
     transition: transform 100ms ease;
+}
+
+/* ==== SKILLS SECTION ==== */
+
+#skills_section {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 2.5rem 2.5em;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.skills_content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills_grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 250px));
+    gap: 1.5rem;
+    width: 100%;
+    list-style: none;
+}
+
+.skills_item {
+    display: flex;
+    padding: 0.5rem;
+    background-color: #fff;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 4px;
+    gap: 1rem;
+}
+
+.skill_icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem;
+}
+
+.skill_label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 1.5rem;
 }
