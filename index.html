@@ -27,8 +27,6 @@
             <section id="hero_section">
                 <h1 class="logo">Darkskullz9</h1>
                 <h2>Développeur Web </h2>
-                <h3>Bienvenue sur mon portfolio</h3>
-                <p>Découvrez mes projets et mon parcours en tant que développeur web.</p>
             </section>
 
             <section id="about_section">
@@ -75,9 +73,7 @@
                                     </ul>
                                 </div>
 
-                                <button type="button" class="project_link_btn">
-                                    <a href="#hero_section" class="project_link">Voir le site</a>
-                                </button>
+                                <a href="#hero_section" class="card_action" role="button">Voir</a>
                             </div>
                         </li>
 
@@ -105,9 +101,7 @@
                                     </ul>
                                 </div>
 
-                                <button type="button" class="project_link_btn">
-                                    <a href="https://djskullz.super.site/" class="project_link"> Voir le site </a>
-                                </button>                                
+                                <a href="https://djskullz.super.site/" target="_blank" rel="noopener" class="card_action" role="button">Voir</a>
                             </div>
                         </li>
 
@@ -135,9 +129,7 @@
                                     </ul>
                                 </div>
 
-                                <button class="project_link_btn">
-                                    <a href="#" class="project_link">Voir sur Figma</a>
-                                </button>
+                                <a href="#" class="card_action" role="button">Voir</a>
                             </div>
                         </li>
                     </ul>
@@ -208,25 +200,27 @@
             </section>
 
             <section id="contact_section">
-                <h2>Contact</h2>
+                <h2 class="section_title">Contact</h2>
 
-                <p>
-                    Vous souhaitez collaborer ou en savoir plus&nbsp;? <br />
-                    N'hésitez pas à me contacter&nbsp;!
-                </p>
+                <div class="contact_content">
+                    <p class="contact_text">
+                        Vous souhaitez collaborer ou en savoir plus ? <br />
+                        N'hésitez pas à me contacter !
+                    </p>
 
-                <form action="mailto:darxkullz9@gmail.com" method="post" enctype="text/plain" class="contact_form">
-                    <label for="name" class="contact_label">Nom :</label>
-                    <input type="text" id="name" name="name" required class="contact_input"/>
+                    <form action="mailto:darxkullz9@gmail.com" method="post" enctype="text/plain" class="contact_form">
+                        <label for="name" class="contact_label" >Nom :</label>
+                        <input type="text" id="name" name="name" required class="contact_input" placeholder="John Doe"/>
 
-                    <label for="email" class="contact_label">Email :</label>
-                    <input type="email" id="email" name="email" required class="contact_input"/>
+                        <label for="email" class="contact_label">Email :</label>
+                        <input type="email" id="email" name="email" required class="contact_input" placeholder="johndoe@example.com"/>
 
-                    <label for="message" class="contact_label">Message :</label>
-                    <textarea id="message" name="message" rows="4" required class="contact_textarea"></textarea>
+                        <label for="message" class="contact_label">Message :</label>
+                        <textarea id="message" name="message" rows="4" required class="contact_textarea" placeholder="Votre message..."></textarea>
 
-                    <button type="submit" class="contact_button">Envoyer</button>
-                </form>
+                        <button type="submit" class="contact_button">Envoyer</button>
+                    </form>
+                </div>
             </section>
         </main>
         
