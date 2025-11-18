@@ -545,9 +545,21 @@ img {
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 900px) {
     body {
         font-size: 20px;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        z-index: 100;
+        background-color: #fff;
+    }
+
+    .main {
+        padding-top: 70px;
     }
 
     .section-title {
