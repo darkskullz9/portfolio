@@ -76,7 +76,7 @@ img {
 
 .header {
     width: 100vw;
-    padding: 0.5em 1.5em;
+    padding: 0.7em 1em;
     background-color: #fff;
     border-bottom: 1px solid #ccc;
     display: flex;
@@ -89,26 +89,57 @@ img {
 
 .header .logo {
     font-family: 'Neotrax', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--secondary-color);
 }
 
-.main-nav {
+/* .main-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    gap: 1rem;
-    padding: 0.5rem 0.5rem;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 100vw;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+    z-index: 110;
+    gap: 1.2rem;
+    padding: 1.5rem 0;
 }
 
-.nav-link {
+.navbar.open {
+    display: flex;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 120;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: 300ms;
+}
+
+.navlink {
     padding: 0;
     text-decoration: none;
     color: var(--text-color);
@@ -121,7 +152,7 @@ img {
 }
 
 
-.nav-link:hover {
+.navlink:hover {
     color: var(--text-color);
     opacity: 100%;
     border-left: 2px solid var(--secondary-color);
@@ -259,11 +290,9 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
-    justify-content: center;
+    grid-template-columns: 1fr;
     width: 100%;
-    list-style: none;
-    gap: 2rem;
+    gap: 1.2rem;
 }
 
 .card {
