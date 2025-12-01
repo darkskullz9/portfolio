@@ -2,8 +2,16 @@
 <html lang="fr-FR">
     <head>
         <meta charset="UTF-8" />
-        <title>Portfolio - Darkskullz9</title>
+        <meta name="description" content="Darkskullz9 - Développeur Web freelance. Découvrez mes projets, compétences et contactez-moi pour collaborer." />
+        <meta name="keywords" content="développeur web, portfolio, freelance, HTML, CSS, JavaScript, PHP, MySQL, React, TypeScript, Figma, Git, GitHub, bts sio" />
+        <meta name="author" content="Darkskullz9" />
+        <meta property="og:title" content="Portfolio - Darkskullz9" />
+        <meta property="og:description" content="Découvrez mes projets, compétences et contactez-moi pour collaborer." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://darkskullz9-portfolio.com" />
+        <meta property="og:image" content="https://darkskullz9-portfolio.com/preview.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio - Darkskullz9</title>
 
         <!-- === Main Stylesheet === -->
         <link rel="stylesheet" href="style.css" />
@@ -83,6 +91,7 @@
                                     <ul>
                                         <li class="html-tag">HTML</li>
                                         <li class="css-tag">CSS</li>
+                                        <li class="js-tag">JavaScript</li>
                                     </ul>
                                 </div>
 
@@ -219,12 +228,26 @@
                 <h2 class="section-title">Contact</h2>
 
                 <div class="contact-content">
-                    <p class="contact-text">
-                        Vous souhaitez collaborer ou en savoir plus ? <br />
-                        N'hésitez pas à me contacter !
-                    </p>
+                    <div class="contact-info">
+                        <p class="contact-text">
+                            Vous souhaitez collaborer ou en savoir plus ? <br />
+                            N'hésitez pas à me contacter !
+                        </p>
 
-                    <form action="mailto:darxkullz9@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                        <div class="contact-methods">
+                            <p>
+                                <strong>Email :</strong> 
+                                <a href="mailto:darxkullz9@gmail.com">darxkullz9@gmail.com</a>
+                            </p>
+
+                            <p>
+                                <strong>GitHub :</strong> 
+                                <a href="https://github.com/darkskullz9" target="_blank" rel="noopener">github.com/darkskullz9</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <form action="https://formspree.io/f/mgvgyvny" method="POST" class="contact-form">
                     <!-- Contact form fields here -->
                         <label for="name" class="contact-label" >Nom :</label>
                         <input type="text" id="name" name="name" required class="contact-input" placeholder="John Doe"/>
