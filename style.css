@@ -5,9 +5,9 @@
 @import url('./fonts/Neotrax.ttf');
 
 :root {
-    --primary-color: #f0ecff;   /* Fond principal */
+    --primary-color: #F0EAFC;   /* Fond principal */
     --secondary-color: #0a0619; /* Tons foncés */
-    --accent-color: #653cff;    /* Accent */
+    --accent-color: #9e00ff;    /* Accent */
     --text-color: #222;
 
     /* Variables pour tags (HTML, CSS, JS...) */
