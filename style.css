@@ -1,12 +1,16 @@
+/* ==========================================================================
+    IMPORTS & VARIABLES
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-
 @import url('./fonts/Neotrax.ttf');
 
 :root {
-    --primary-color: #f0ecff;
-    --secondary-color: #0a0619;
-    --accent-color: #653cff;
-    --text-color: #000000;
+    --primary-color: #f0ecff;   /* Fond principal */
+    --secondary-color: #0a0619; /* Tons foncés */
+    --accent-color: #653cff;    /* Accent */
+    --text-color: #222;
+
+    /* Variables pour tags (HTML, CSS, JS...) */
     --html-color: #E34C26;
     --css-color: #1572B6;
     --js-color: #F7DF1E;
@@ -18,7 +22,7 @@
     --no-code-color: #ccc;
 }
 
-/* ==== BASE / RESET ==== */
+/* === RESET =============================================================== */
 
 *, *::before, *::after {
     margin: 0;
@@ -26,6 +30,7 @@
     box-sizing: border-box;
 }
 
+/* === STYLES DE BASE ====================================================== */
 html {
     font-size: 16px;
     scroll-behavior: smooth;
@@ -38,6 +43,7 @@ body {
     line-height: 1.6;
 }
 
+/* === TYPOGRAPHIE DES TITRES ============================================== */
 h1 {
     font-family: Neotrax, sans-serif;
     font-weight: 700;
@@ -53,6 +59,7 @@ h2 {
     font-size: 2rem;
 }
 
+/* === LIENS ET IMAGES ================================================= */
 a {
     color: inherit;
     text-decoration: none;
@@ -63,15 +70,6 @@ img {
     display: block;
 }
 
-.section-title {
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
-    display: flex;
-    align-self: flex-start;
-    color: var(--secondary-color);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-}
 
 /* ==== HEADER & NAVIGATION ==== */
 
@@ -228,8 +226,19 @@ img {
     transition: transform 200ms ease-in-out;
 }
 
-/* ==== HERO SECTION ==== */
+/* === TITRES DE SECTIONS ================================================== */
+.section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-self: flex-start;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
 
+
+/* === SECTION HERO ================================================== */
 #hero-section {
     width: 100vw;
     height: fit-content;
@@ -251,8 +260,7 @@ img {
     font-weight: 500;
 }
 
-/* ==== ABOUT SECTION ==== */
-
+/* === SECTION À PROPOS ================================================== */
 #about-section {
     width: 100vw;
     height: fit-content;
@@ -265,8 +273,6 @@ img {
     text-align: left;
 }
 
-
-
 .about-content {
     display: flex;
     align-items: center;
@@ -278,7 +284,7 @@ img {
     text-align: left;
 }
 
-/* ==== PROJECTS SECTION ==== */
+/* === SECTION PROJETS ================================================== */
 
 #projects-section {
     width: 100vw;
@@ -318,6 +324,7 @@ img {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 200ms ease-in-out;
+    touch-action: manipulation;
 }
 
 .card-thumbnail {
@@ -417,7 +424,7 @@ img {
         color 200ms ease;
 }
 
-/* ==== SKILLS SECTION ==== */
+/* === SECTION SKILLS ================================================== */
 
 #skills-section {
     width: 100vw;
@@ -577,7 +584,7 @@ img {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
 
@@ -612,7 +619,7 @@ img {
     }
 
     .navbar {
-        display: flex !important;
+        display: flex;
         flex-direction: row;
         position: static;
         width: auto;
@@ -635,7 +642,7 @@ img {
     }
 
     #hero-section {
-        height: 100vh;
+        min-height: 100vh;
         padding: 0;
     }
 
@@ -670,8 +677,8 @@ img {
     }
 
     .contact-content {
+        display: flex;
         flex-direction: row;
-        height: fit-content;
         align-items: center;
         justify-content: center;
         align-content: center;
