@@ -10,6 +10,7 @@
     font-style: normal;
 }
 
+/* === DEFAULT THEME (LIGHT MODE) ================================================ */
 :root {
     --bg-dark: #e6ddff; /* fallback */
     --bg-dark: oklch(0.92 0.1 293);
@@ -53,10 +54,6 @@
     --info: #0559d2;
     --info: oklch(0.5 0.2 260);
 
-    --primary-color: #F0EAFC;   /* Fond principal */
-    --secondary-color: #0a0619; /* Tons foncés */
-    --accent-color: #9e00ff;    /* Accent */
-
     /* Variables pour tags (HTML, CSS, JS...) */
     --html-color: #E34C26;
     --css-color: #1572B6;
@@ -67,6 +64,65 @@
     --vite-color: #646CFF;
     --figma-color: #F24E1E;
     --no-code-color: #ccc;
+}
+
+/* === DARK THEME ========================================================== */
+[data-theme="dark"] {
+    --bg-dark: #0a0619;
+    --bg-dark: oklch(0.08 0.1 293);
+
+    --bg: #1a0f3d;
+    --bg: oklch(0.15 0.15 293);
+
+    --bg-light: #2e1b5c;
+    --bg-light: oklch(0.22 0.18 293);
+
+    --text: #f4e6ff;
+    --text: oklch(0.96 0.1 293);
+
+    --text-muted: #c4a8ff;
+    --text-muted: oklch(0.78 0.15 293);
+
+    --highlight: #3d2370;
+    --highlight: oklch(0.28 0.18 293);
+
+    --border: #5c3ea8;
+    --border: oklch(0.42 0.18 293);
+
+    --border-muted: #4a2f8a;
+    --border-muted: oklch(0.35 0.18 293);
+
+    --primary: #a680ff;
+    --primary: oklch(0.7 0.2 293);
+
+    --secondary: #c4c400;
+    --secondary: oklch(0.7 0.2 113);
+
+    --danger: #ff4136;
+    --danger: oklch(0.65 0.25 30);
+
+    --warning: #ffb700;
+    --warning: oklch(0.8 0.2 100);
+
+    --success: #00d97e;
+    --success: oklch(0.8 0.2 160);
+
+    --info: #5c9eff;
+    --info: oklch(0.7 0.2 260);
+}
+
+/* === Smooth transition for theme change ======================================== */
+body,
+.header,
+.footer,
+.card,
+.skills-item,
+.navbar,
+.navlink,
+.contact-input,
+.contact-textarea,
+.contact-button {
+    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
 }
 
 /* === RESET =============================================================== */
@@ -123,6 +179,56 @@ button {
     border: none;
     background: none;
 }
+
+/* ==== THEME TOGGLE BUTTON ==== */
+.theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 300ms ease;
+    margin-right: 1rem;
+}
+
+.theme-toggle:hover {
+    transform: rotate(20deg);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95) rotate(20deg);
+}
+
+.theme-toggle svg {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    color: var(--text);
+    transition: all 300ms ease;
+}
+
+.sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
 /* ==== HEADER & NAVIGATION ==== */
 
 .header {
@@ -142,6 +248,12 @@ button {
     font-family: 'Neotrax', sans-serif;
     font-size: 1.2rem;
     color: var(--text);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .main-nav {
