@@ -11,14 +11,17 @@
         <meta property="og:url" content="https://darkskullz9-portfolio.com" />
         <meta property="og:image" content="https://darkskullz9-portfolio.com/preview.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="icon" type="image/png" href="images/favicon-dark.ico" />
         <title>Portfolio - Darkskullz9</title>
 
         <!-- === Main Stylesheet === -->
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
     </head>
 
     <body>
+        <a href="#main-content" class="skip-link">Aller au contenu principal</a>
         <!-- === HEADER / NAVIGATION === -->
         <header class="header">
             <a href="./index.html">
@@ -83,11 +86,11 @@
             </div>
         </header>
 
-        <main>
+        <main id="main-content">
             <!-- === HERO SECTION === -->
             <section id="hero-section">
-                <h1 class="logo">Darkskullz9</h1>
-                <h2 class="tagline">Développeur Web </h2>
+                <p class="hero-name">Darkskullz9</p>
+                <h2 class="tagline">Développeur Web</h2>
             </section>
 
             <!-- === ABOUT SECTION === -->
@@ -101,7 +104,7 @@
                         J’ai longtemps appris à coder de façon assez... “décousue” : tutos, frameworks, projets commencés... puis laissés de côté. À force de vouloir “tout tester”, je me suis souvent retrouvé à ne pas vraiment comprendre ce que je faisais , ni à finir mes projets. <br />
                         
                         Aujourd’hui, étudiant en BTS SIO, je reprends tout depuis la base pour vraiment maîtriser chaque étape : HTML, CSS, un peu de JS, design, structure... <br />
-                        Mon objectif progresser avec rigueur et construire des projets complets dont je suis fier - d’où ce nouveau portfolio, pensé comme un vrai terrain d’apprentissage et d’expérimentation.<br />
+                        Mon objectif : progresser avec rigueur et construire des projets complets dont je suis fier - d’où ce nouveau portfolio, pensé comme un vrai terrain d’apprentissage et d’expérimentation.<br />
                         
                         Ici tu trouveras mes avancées réelles, sans “cheat code” ni version parfaite, juste une évolution de développeur web (comme un Pokémon).<br />
                         
@@ -167,7 +170,7 @@
                                     </ul>
                                 </div>
 
-                                <a href="https://djskullz.super.site/" target="-blank" rel="noopener" class="card-action" role="button">Voir</a>
+                                <a href="https://djskullz.super.site/" target="_blank" rel="noopener" class="card-action" role="button">Voir</a>
                             </div>
                         </li>
 
@@ -195,7 +198,7 @@
                                     </ul>
                                 </div>
 
-                                <a href="#" class="card-action" role="button">Voir</a>
+                                <p class="card-action">Bientôt disponible</p>
                             </div>
                         </li>
                     </ul>
@@ -313,7 +316,7 @@
             <div class="footer-links">
             <!-- Logo and navigation links -->
                 <a href="#hero-section">
-                    <h1 class="logo">Darkskullz9</h1>
+                    <p class="logo">Darkskullz9</p>
                 </a>
 
                 <nav class="footer-nav">
@@ -332,13 +335,13 @@
 
                 <ul class="socials-list">
                     <li>
-                        <a href="https://github.com/darkskullz9" target="-blank" rel="noopener" class="social-link">
+                        <a href="https://github.com/darkskullz9" target="_blank" rel="noopener" class="social-link">
                             <img src="./images/icons/github.svg" alt="GitHub" class="social-icon" />
                         </a>
                     </li>
 
                     <li>
-                        <a href="https://www.instagram.com/darkskullz9" target="-blank" rel="noopener" class="social-link">
+                        <a href="https://www.instagram.com/darkskullz9" target="_blank" rel="noopener" class="social-link">
                             <img src="./images/icons/instagram.svg" alt="Instagram" class="social-icon" />
                         </a>
                     </li>
@@ -348,5 +351,6 @@
 
         <!-- === Main JavaScript === -->
         <script src="script.js"></script>
+        <script src="form-validation.js"></script>
     </body>
 </html>

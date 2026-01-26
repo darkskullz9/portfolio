@@ -1,8 +1,38 @@
 /* ==========================================================================
-    IMPORTS & VARIABLES
+    PORTFOLIO DARKSKULLZ9 - STYLESHEET
+
+    TABLE OF CONTENTS:
+    1. Imports & Fonts
+    2. CSS Variables (Themes)
+    3. Reset & Base Styles
+    4. Layout Components
+        4.1 Header & Navigation
+        4.2 Footer
+        4.3 Theme Toggle Button
+    5. Sections
+        5.1 Hero Section
+        5.2 About Section
+        5.3 Projects Section
+        5.4 Skills Section
+        5.5 Contact Section
+    6. Responsive Design
+        6.1 Tablet (768px+)
+        6.2 Desktop (900px+)
+    7. Accessibility Improvements
+    8. Enhanced Interactions
+    9. Form Validation Styles
+    10. Loading Animations
+    11. Utility Classes
    ========================================================================== */
+
+/* ==========================================================================
+    1. IMPORTS & FONTS
+   ========================================================================== */
+
+/* Google Fonts - Inter (body) & Rajdhani (Headings) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
+/* Custom Font - Neotrax (logo) */
 @font-face {
     font-family: 'Neotrax';
     src: url('./fonts/Neotrax.ttf') format('truetype');
@@ -10,108 +40,78 @@
     font-style: normal;
 }
 
-/* === DEFAULT THEME (LIGHT MODE) ================================================ */
+/* ==========================================================================
+    2. CSS VARIABLES (THEMES)
+   ========================================================================== */
+
+/* --- Light Theme (Default) --- */
 :root {
-    --bg-dark: #e6ddff; /* fallback */
-    --bg-dark: oklch(0.92 0.1 293);
+    /* Backgrounds */
+    --bg-dark: oklch(0.92 0.1 293);      /* #e6ddff - Fond le plus sombre */
+    --bg: oklch(0.96 0.1 293);           /* #f4e6ff - Fond intermédiaire */
+    --bg-light: oklch(1 0.1 293);        /* #fff3ff - Fond le plus clair */
+    
+    /* Text Colors */
+    --text: oklch(0.15 0.2 293);         /* #1d0055 - Texte principal */
+    --text-muted: oklch(0.4 0.2 293);    /* #5219a6 - Texte secondaire */
+    
+    /* Highlights & Accents */
+    --highlight: oklch(1 0.2 293);       /* #ffe3ff - Couleur de surbrillance */
+    --primary: oklch(0.4 0.2 293);       /* #5219a6 - Couleur principale */
+    --secondary: oklch(0.4 0.2 113);     /* #4d4d00 - Couleur secondaire */
+    
+    /* Borders */
+    --border: oklch(0.6 0.2 293);        /* #8860ea - Bordure principale */
+    --border-muted: oklch(0.7 0.2 293);  /* #a680ff - Bordure seondaire */
+    
+    /* Status Colors */
+    --danger: oklch(0.5 0.2 30);         /* #ba0d01 - Danger/Erreur */
+    --warning: oklch(0.5 0.2 100);       /* #806000 - Avertissement */
+    --success: oklch(0.5 0.2 160);       /* #008237 - Succès */
+    --info: oklch(0.5 0.2 260);          /* #0559d2 - Information */
 
-    --bg: #f4e6ff;
-    --bg: oklch(0.96 0.1 293);
-
-    --bg-light: #fff3ff;
-    --bg-light: oklch(1 0.1 293);
-    
-    --text: #1d0055;
-    --text: oklch(0.15 0.2 293);
-    
-    --text-muted: #5219a6;
-    --text-muted: oklch(0.4 0.2 293);
-    
-    --highlight: #ffe3ff;
-    --highlight: oklch(1 0.2 293);
-    
-    --border: #8860ea;
-    --border: oklch(0.6 0.2 293);
-    
-    --border-muted: #a680ff;
-    --border-muted: oklch(0.7 0.2 293);
-    
-    --primary: #5219a6;
-    --primary: oklch(0.4 0.2 293);
-    
-    --secondary: #4d4d00;
-    --secondary: oklch(0.4 0.2 113);
-    
-    --danger: #ba0d01;
-    --danger: oklch(0.5 0.2 30);
-    
-    --warning: #806000;
-    --warning: oklch(0.5 0.2 100);
-    
-    --success: #008237;
-    --success: oklch(0.5 0.2 160);
-    
-    --info: #0559d2;
-    --info: oklch(0.5 0.2 260);
-
-    /* Variables pour tags (HTML, CSS, JS...) */
-    --html-color: #E34C26;
-    --css-color: #1572B6;
-    --js-color: #F7DF1E;
-    --php-color: #8993BE;
-    --mysql-color: #4479A1;
-    --react-color: #61DAFB;
-    --vite-color: #646CFF;
-    --figma-color: #F24E1E;
-    --no-code-color: #ccc;
+    /* Technology Tags Colors */
+    --html-color: #E34C26;               /* HTML - Orange */
+    --css-color: #1572B6;                /* CSS - Bleu */
+    --js-color: #F7DF1E;                 /* JavaScript - Jaune */
+    --php-color: #8993BE;                /* PHP - Violet */
+    --mysql-color: #4479A1;              /* MySQL - Bleu foncé */
+    --react-color: #61DAFB;              /* React - Bleu clair */
+    --vite-color: #646CFF;               /* Vite - Bleu violet */
+    --figma-color: #F24E1E;              /* Figma - Rouge */
+    --no-code-color: #ccc;               /* No-Code - Gris */
 }
 
-/* === DARK THEME ========================================================== */
+/* --- Dark Theme --- */
 [data-theme="dark"] {
-    --bg-dark: #0a0619;
-    --bg-dark: oklch(0.08 0.1 293);
+    /* Backgrounds */
+    --bg-dark: oklch(0.08 0.1 293);      /* #0a0619 - Fond le plus sombre */
+    --bg: oklch(0.15 0.15 293);          /* #1a0f3d - Fond sombre */
+    --bg-light: oklch(0.22 0.18 293);    /* #2e1b5c - Fond le moins sombre */
 
-    --bg: #1a0f3d;
-    --bg: oklch(0.15 0.15 293);
+    /* Text Colors */
+    --text: oklch(0.96 0.1 293);         /* #f4e6ff - Texte clair */
+    --text-muted: oklch(0.78 0.15 293);  /* #c4a8ff - Texte secondaire clair */
 
-    --bg-light: #2e1b5c;
-    --bg-light: oklch(0.22 0.18 293);
+    /* Highlights & Accents */
+    --highlight: oklch(0.28 0.18 293);   /* #3d2370 - Surbrillance sombre */
+    --primary: oklch(0.7 0.2 293);       /* #a680ff - Primaire clair */
+    --secondary: oklch(0.7 0.2 113);     /* #c4c400 - Secondaire clair */
 
-    --text: #f4e6ff;
-    --text: oklch(0.96 0.1 293);
+    /* Borders */
+    --border: oklch(0.42 0.18 293);      /* Bordure adaptée */
+    --border-muted: oklch(0.35 0.18 293);/* Bordure aténuée */
 
-    --text-muted: #c4a8ff;
-    --text-muted: oklch(0.78 0.15 293);
+    /* Status Colors (adaptés pour dark mode) */
+    --danger: oklch(0.65 0.25 30);       /* #ff4136 - Danger/Erreur */
+    --warning: oklch(0.8 0.2 100);       /* #ffb700 - Avertissement */
+    --success: oklch(0.8 0.2 160);       /* #00d97e - Succès */
+    --info: oklch(0.7 0.2 260);          /* #5c9eff - Information */
 
-    --highlight: #3d2370;
-    --highlight: oklch(0.28 0.18 293);
-
-    --border: #5c3ea8;
-    --border: oklch(0.42 0.18 293);
-
-    --border-muted: #4a2f8a;
-    --border-muted: oklch(0.35 0.18 293);
-
-    --primary: #a680ff;
-    --primary: oklch(0.7 0.2 293);
-
-    --secondary: #c4c400;
-    --secondary: oklch(0.7 0.2 113);
-
-    --danger: #ff4136;
-    --danger: oklch(0.65 0.25 30);
-
-    --warning: #ffb700;
-    --warning: oklch(0.8 0.2 100);
-
-    --success: #00d97e;
-    --success: oklch(0.8 0.2 160);
-
-    --info: #5c9eff;
-    --info: oklch(0.7 0.2 260);
+    /* Technology Tags Colors inchangés */
 }
 
-/* === Smooth transition for theme change ======================================== */
+/* --- Smooth Theme Transition --- */
 body,
 .header,
 .footer,
@@ -122,21 +122,28 @@ body,
 .contact-input,
 .contact-textarea,
 .contact-button {
-    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+    transition: background-color 300ms ease, 
+                color 300ms ease, 
+                border-color 300ms ease;
 }
 
-/* === RESET =============================================================== */
+/* ===========================================================================
+     3. RESET & BASE STYLES
+   =========================================================================== */ 
 
-*, *::before, *::after {
+/* --- CSS Reset --- */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* === STYLES DE BASE ====================================================== */
+/* --- HTML & Body Base --- */
 html {
-    font-size: 16px;
-    scroll-behavior: smooth;
+    font-size: 16px;                /* Base font size pour rem */
+    scroll-behavior: smooth;        /* Scroll fluide pour ancres */
 }
 
 body {
@@ -144,6 +151,23 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-muted);
     line-height: 1.6;
+    overflow-x: hidden;           /* Evite scroll horizontal */
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary);
+    color: var(--highlight);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* === TYPOGRAPHIE DES TITRES ============================================== */
@@ -229,6 +253,10 @@ button {
     transform: rotate(0deg) scale(1);
 }
 
+/* ===========================================================================
+     4. LAYOUT COMPONENTS
+   =========================================================================== */ 
+
 /* ==== HEADER & NAVIGATION ==== */
 
 .header {
@@ -297,7 +325,7 @@ button {
     display: block;
     width: 24px;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: var(--text);
     border-radius: 2px;
     transition: 300ms;
 }
@@ -319,6 +347,11 @@ button {
     color: var(--text);
     opacity: 100%;
     transition: opacity 250ms ease;
+}
+
+.navlink:focus, .contact-button:focus, .theme-toggle:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .navlink-underline {
@@ -409,6 +442,10 @@ button {
     transition: transform 200ms ease-in-out;
 }
 
+/* ===========================================================================
+     5. SECTIONS
+   =========================================================================== */ 
+
 /* === TITRES DE SECTIONS ================================================== */
 .section-title {
     font-family: 'Rajdhani', sans-serif;
@@ -433,8 +470,13 @@ button {
     padding: 2.5em;
 }
 
-#hero-section .logo {
-    font-size: 2em;
+#hero-section .hero-name {
+    font-family: 'Neotrax', sans-serif;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 1rem;
 }
 
 #hero-section .tagline {
@@ -506,8 +548,13 @@ button {
     border: 1px solid var(--border-muted);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 200ms ease-in-out;
+    transition: transform 300ms ease, box-shadow 300ms ease;
     touch-action: manipulation;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .card-thumbnail {
@@ -775,6 +822,10 @@ button {
     transition: transform 200ms ease;
 }
 
+/* ===========================================================================
+     6. RESPONSIVE DESIGN
+   =========================================================================== */ 
+
 /* ==== RESPONSIVE STYLES ==== */
 
 @media (min-width: 768px) {
@@ -813,7 +864,7 @@ button {
 
 @media (min-width: 900px) {
     body {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .header {
@@ -911,3 +962,23 @@ button {
         gap: 2rem;
     }
 }
+
+/* ===========================================================================
+     7. ACCESSIBILITY IMPROVEMENTS
+   =========================================================================== */ 
+
+   /* ===========================================================================
+     8. ENHANCED INTERACTIONS
+   =========================================================================== */ 
+
+   /* ===========================================================================
+     9. FORM VALIDATION STYLES
+   =========================================================================== */ 
+
+   /* ===========================================================================
+     10. LOADING ANIMATIONS
+   =========================================================================== */ 
+
+   /* ===========================================================================
+     11. UTILITY CLASSES 
+   =========================================================================== */ 
