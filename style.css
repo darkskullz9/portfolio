@@ -23,11 +23,11 @@
     9. Form Validation Styles
     10. Loading Animations
     11. Utility Classes
-   ========================================================================== */
+========================================================================== */
 
 /* ==========================================================================
     1. IMPORTS & FONTS
-   ========================================================================== */
+========================================================================== */
 
 /* Google Fonts - Inter (body) & Rajdhani (Headings) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
@@ -42,7 +42,7 @@
 
 /* ==========================================================================
     2. CSS VARIABLES (THEMES)
-   ========================================================================== */
+========================================================================== */
 
 /* --- Light Theme (Default) --- */
 :root {
@@ -129,7 +129,7 @@ body,
 
 /* ===========================================================================
      3. RESET & BASE STYLES
-   =========================================================================== */ 
+=========================================================================== */ 
 
 /* --- CSS Reset --- */
 *,
@@ -152,22 +152,6 @@ body {
     color: var(--text-muted);
     line-height: 1.6;
     overflow-x: hidden;           /* Evite scroll horizontal */
-}
-
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    background: var(--primary);
-    color: var(--highlight);
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    z-index: 1000;
-    transition: top 0.3s ease;
-}
-
-.skip-link:focus {
-    top: 0;
 }
 
 /* === TYPOGRAPHIE DES TITRES ============================================== */
@@ -255,7 +239,7 @@ button {
 
 /* ===========================================================================
      4. LAYOUT COMPONENTS
-   =========================================================================== */ 
+=========================================================================== */ 
 
 /* ==== HEADER & NAVIGATION ==== */
 
@@ -349,11 +333,6 @@ button {
     transition: opacity 250ms ease;
 }
 
-.navlink:focus, .contact-button:focus, .theme-toggle:focus {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
-}
-
 .navlink-underline {
     position: relative;
     padding-bottom: 0.25rem;
@@ -444,7 +423,7 @@ button {
 
 /* ===========================================================================
      5. SECTIONS
-   =========================================================================== */ 
+=========================================================================== */ 
 
 /* === TITRES DE SECTIONS ================================================== */
 .section-title {
@@ -548,13 +527,7 @@ button {
     border: 1px solid var(--border-muted);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 300ms ease, box-shadow 300ms ease;
     touch-action: manipulation;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .card-thumbnail {
@@ -824,9 +797,7 @@ button {
 
 /* ===========================================================================
      6. RESPONSIVE DESIGN
-   =========================================================================== */ 
-
-/* ==== RESPONSIVE STYLES ==== */
+=========================================================================== */ 
 
 @media (min-width: 768px) {
     body {
@@ -965,20 +936,205 @@ button {
 
 /* ===========================================================================
      7. ACCESSIBILITY IMPROVEMENTS
-   =========================================================================== */ 
+=========================================================================== */ 
 
-   /* ===========================================================================
-     8. ENHANCED INTERACTIONS
-   =========================================================================== */ 
+/* Skip link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary);
+    color: var(--bg-light);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 1000;
+    font-weight: 600;
+    transition: top 300ms ease;
+}
 
-   /* ===========================================================================
-     9. FORM VALIDATION STYLES
-   =========================================================================== */ 
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
 
-   /* ===========================================================================
-     10. LOADING ANIMATIONS
-   =========================================================================== */ 
+/* Focuse styles for interactive elements */
+*:focus {
+    outline: none;
+}
 
-   /* ===========================================================================
-     11. UTILITY CLASSES 
-   =========================================================================== */ 
+.nav-link:focus,
+.card-action:focus,
+.theme-toggle:focus,
+.hamburger:focus,
+.social-link:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(82, 25, 166, 0.1);
+    outline: none;
+}
+
+[data-theme="dark"] .contact-input:focus,
+[data-theme="dark"] .contact-textarea:focus {
+    box-shadow: 0 0 0 3px rgba(166, 128, 255, 0.15);
+}
+
+.contact-button:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* Focus visible only for keyboard users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ===========================================================================
+    8. ENHANCED INTERACTIONS
+=========================================================================== */
+
+/* Card hover effects */
+.card {
+    transition: transform 300ms ease,
+                box-shadow 300ms ease,
+                border-color 300ms ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary);
+}
+
+/* Smooth thumbnail zoom on hover */
+.card-thumbnail {
+    transition: transform 300ms ease;
+}
+
+.card:hover .card-thumbnail {
+    transform: scale(1.05);
+}
+
+/* Animated hamburger menu */
+.hamburger {
+    padding: 4px;
+}
+
+.hamburger span {
+    transition: all 300ms ease;
+    transform-origin: center;
+}
+
+/* Animate to X when menu is open */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Active navigation state */
+.navlink.active {
+    color: var(--text);
+    opacity: 100%;
+}
+
+.navlink-underline.active::after {
+    transform: scaleX(1);
+    background-color: var(--primary);
+}
+
+/* ===========================================================================
+    9. FORM VALIDATION STYLES
+=========================================================================== */ 
+
+/* === INPUTS ERROR STATES === */
+.contact-input.error,
+.contact-textarea.error {
+    border-color: var(--danger);
+    background-color: rgba(186, 13, 1, 0.05);
+}
+
+[data-theme="dark"] .contact-input.error,
+[data-theme="dark"] .contact-textarea.error {
+    background-color: rgba(255, 65, 54, 0.1);
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* === DISABLED BUTTON STATE === */
+.contact-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* === SUCCESS/ERROR MESSAGES === */
+.form-message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-weight: 500;
+    animation: slideIn 300ms ease-out;
+}
+
+.form-message--success {
+    background-color: var(--success);
+    color: white;
+}
+
+.form-message--error {
+    background-color: var(--danger);
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================================================
+    10. LOADING ANIMATIONS
+=========================================================================== */ 
+
+/* ===========================================================================
+    11. UTILITY CLASSES 
+=========================================================================== */ 
