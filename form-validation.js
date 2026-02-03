@@ -6,7 +6,7 @@
 const contactForm = document.querySelector('.contact-form');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
-const messageInput = document.getElementById('message');
+const messageTextarea = document.getElementById('message');
 
 // Validation patterns
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -60,7 +60,7 @@ function validateField(input, validationFn, errorMessage) {
 const validators = {
     name: (value) => value.length >= 2 && namePattern.test(value),
     email: (value) => emailPattern.test(value),
-    mesage: (value) => value.length >= 10
+    message: (value) => value.length >= 10
 };
 
 // Real-time validation on blur
@@ -88,20 +88,20 @@ if (emailInput) {
     });
 }
 
-if (messageInput) {
-    messageInput.addEventListener('blur', () => {
-        if (messageInput.value.trim()) {
+if (messageTextarea) {
+    messageTextarea.addEventListener('blur', () => {
+        if (messageTextarea.value.trim()) {
             validateField(
-                messageInput,
-                validators.mesage,
+                messageTextarea,
+                validators.message,
                 'Le message doit contenir au moins 10 caractères.'
             );
         }
     });
 }
 
-// Clrear error on input
-[nameInput, emailInput, messageInput].forEach(input => {
+// Clear error on input
+[nameInput, emailInput, messageTextarea].forEach(input => {
     if (input) {
         input.addEventListener('input', () => {
             if (input.classList.contains('error')) {
@@ -128,8 +128,8 @@ if (contactForm) {
             'Veuillez entrer une adresse e-mail valide. (ex: exemple@domaine.com)'
         );
         const isMessageValid = validateField(
-            messageInput,
-            validators.mesage,
+            messageTextarea,
+            validators.message,
             'Le message doit contenir au moins 10 caractères.'
         );
 
@@ -145,7 +145,7 @@ if (contactForm) {
                 // Submit form to Formspree
                 const formData = new FormData(contactForm);
                 const response = await fetch(contactForm.action, {
-                    metho: 'POST',
+                    method: 'POST',
                     body: formData,
                     headers: {
                         'Accept': 'application/json'
@@ -154,10 +154,10 @@ if (contactForm) {
 
                 if (response.ok) {
                     // Success message
-                    showMessage('&check; Message envoyé avec succès ! Je vous répondrai bientôt.', 'success');
+                    showMessage('✓ Message envoyé avec succès ! Je vous répondrai bientôt.', 'success');
                     contactForm.reset();
                     // Remove any remaining errors
-                    [nameInput, emailInput, messageInput].forEach(input => {
+                    [nameInput, emailInput, messageTextarea].forEach(input => {
                         if (input) removeError(input);
                     });
                 } else {

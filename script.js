@@ -90,7 +90,7 @@ function debounce(func, wait) {
 
 // Initial call and event listener for window resize
 window.addEventListener("DOMContentLoaded", setMainPaddingTop);
-window.addEventListener("resize", setMainPaddingTop);
+window.addEventListener("resize", debounce(setMainPaddingTop, 150));
 
 
 // === Hamburger Menu Toggle ===
@@ -173,12 +173,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// === Active Navigation Link Highlight ===
+// === Active Navigation Link highlight ===
 window.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.navlink[href^="#"]');
 
-    function highLightNavigation() {
+    function highlightNavigation() {
         const scrollPosition = window.scrollY + 100; // Offset for fixed header
 
         sections.forEach(section => {
@@ -203,10 +203,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Run on scroll with debounce
-    window.addEventListener('scroll', debounce(highLightNavigation, 100));
+    window.addEventListener('scroll', debounce(highlightNavigation, 100));
 
     // Run once on load
-    highLightNavigation();
+    highlightNavigation();
 });
 
 // === Lazy Loading Images (Performance Optimization) ===
