@@ -1135,6 +1135,117 @@ button {
     10. LOADING ANIMATIONS
 =========================================================================== */ 
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in sections on load */
+section {
+    animation: fadeIn 600ms ease-out;
+}
+
+/* Hero section elements */
+.hero-name {
+    font-family: 'Neotrax', sans-serif;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 800ms ease-out;
+}
+
+#herosection .tagline {
+    animation: fadeIn 1000ms ease-out;
+    animation-delay: 200ms;
+    animation-fill-mode: backwards;
+}
+
+/* Stagger project cards */
+.projects-grid .card {
+    animation: fadeIn 600ms ease-out;
+    animation-fill-mode: backwards;
+}
+
+.projects-grid .card:nth-child(1) { animation-delay: 100ms; }
+.projects-grid .card:nth-child(2) { animation-delay: 200ms; }
+.projects-grid .card:nth-child(3) { animation-delay: 300ms; }
+.projects-grid .card:nth-child(4) { animation-delay: 400ms; }
+.projects-grid .card:nth-child(5) { animation-delay: 500ms; }
+.projects-grid .card:nth-child(6) { animation-delay: 600ms; }
+
+/* Fade in skills */
+.skills-grid .skills-item {
+    animation: fadeIn 500ms ease-out;
+    animation-fill-mode: backwards;
+}
+
+.skills-grid .skills-item:nth-child(1) { animation-delay: 50ms; }
+.skills-grid .skills-item:nth-child(2) { animation-delay: 100ms; }
+.skills-grid .skills-item:nth-child(3) { animation-delay: 150ms; }
+.skills-grid .skills-item:nth-child(4) { animation-delay: 200ms; }
+.skills-grid .skills-item:nth-child(5) { animation-delay: 250ms; }
+.skills-grid .skills-item:nth-child(6) { animation-delay: 300ms; }
+.skills-grid .skills-item:nth-child(7) { animation-delay: 350ms; }
+.skills-grid .skills-item:nth-child(8) { animation-delay: 400ms; }
+.skills-grid .skills-item:nth-child(9) { animation-delay: 450ms; }
+.skills-grid .skills-item:nth-child(10) { animation-delay: 500ms; }
+.skills-grid .skills-item:nth-child(11) { animation-delay: 550ms; }
+.skills-grid .skills-item:nth-child(12) { animation-delay: 600ms; }
+
 /* ===========================================================================
     11. UTILITY CLASSES 
 =========================================================================== */ 
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Visually hidden text (accessible only to screen readers) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .hamburger,
+    .theme-toggle,
+    .footer,
+    .skip-link {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+}
