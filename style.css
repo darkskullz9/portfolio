@@ -798,6 +798,7 @@ button {
      6. RESPONSIVE DESIGN
 =========================================================================== */ 
 
+/* === TABLET STYLES (768px+) ============================================= */
 @media (min-width: 768px) {
     body {
         font-size: 18px;
@@ -836,7 +837,8 @@ button {
     }
 }
 
-@media (min-width: 900px) {
+/* === DESKTOP STYLES (1024px+) ============================================ */
+@media (min-width: 1024px) {
     body {
         font-size: 1.25rem;
     }
