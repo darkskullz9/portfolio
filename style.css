@@ -529,12 +529,22 @@ button {
     touch-action: manipulation;
 }
 
+.card--not-avaible {
+    box-shadow: none;    
+    background-color: rgba(247, 80, 70, 0.2);
+    border-color: rgba(247, 80, 70, 1);
+}
+
 .card-thumbnail {
     width: 100%;
     height: auto;
     object-fit: cover;
     border: var(--border-muted) 1px solid;
     border-radius:  4px;
+}
+
+.card--not-avaible .card-thumbnail {
+    filter: grayscale(100%) opacity(0.7);
 }
 
 .card-text {
@@ -629,8 +639,22 @@ button {
 }
 
 .card-action--disabled {
+    background-color: rgba(247, 70, 70, 0.2);
+    color: rgba(247, 80, 70, 1);
+    border: 2px solid rgba(247, 80, 70, 1);
     opacity: 0.6;
+}
+
+.card-action--disabled:hover {
+    background-color: rgba(247, 80, 70, 0.2);
+    border: 2px solid rgba(247, 80, 70, 1);
     cursor: not-allowed;
+}
+
+.card-action--disabled:active {
+    background-color: rgba(247, 80, 70, 1);
+    color: white;
+    transform: none;
 }
 
 /* === SECTION SKILLS ================================================== */
@@ -898,7 +922,7 @@ button {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(3,1fr);
         gap: 3rem;
     }
 
@@ -1031,10 +1055,26 @@ button {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+.card--not-avaible:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(247, 80, 70, 1);
+}
+
+[data-theme="dark"] .card--not-avaible:hover {
+    box-shadow: none;
+}
+
 .card:focus-within {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     border-color: var(--primary);
+}
+
+.card--not-avaible:focus-within {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(247, 80, 70, 1);
 }
 
 /* Smooth thumbnail zoom on hover */
@@ -1042,8 +1082,16 @@ button {
     transition: transform 300ms ease;
 }
 
+.card--not-avaible .card-thumbnail {
+    transition: none;
+}
+
 .card:hover .card-thumbnail {
     transform: scale(1.05);
+}
+
+.card--not-avaible:hover .card-thumbnail {
+    transform: none;
 }
 
 /* Animated hamburger menu */
