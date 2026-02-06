@@ -1220,7 +1220,7 @@ section {
     animation: fadeIn 800ms ease-out;
 }
 
-#heros-ection .tagline {
+#hero-ection .tagline {
     animation: fadeIn 1000ms ease-out;
     animation-delay: 200ms;
     animation-fill-mode: backwards;
