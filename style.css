@@ -439,7 +439,8 @@ button {
 /* === SECTION HERO ================================================== */
 #hero-section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -466,7 +467,8 @@ button {
 /* === SECTION À PROPOS ================================================== */
 #about-section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     padding: 2.5em;
     background-color: var(--bg-dark);
     display: flex;
@@ -493,7 +495,8 @@ button {
 
 #projects-section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     padding: 2.5rem 2.5em;
     background-color: var(--bg-dark);
     display: flex;
@@ -661,7 +664,8 @@ button {
 
 #skills-section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     padding: 2.5rem 2.5em;
     background-color: var(--bg-dark);
     display: flex;
@@ -720,7 +724,8 @@ button {
 
 #contact-section {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     padding: 2.5rem 2.5em;
     background-color: var(--bg-dark);
     display: flex;
