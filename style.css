@@ -425,7 +425,11 @@ button {
      5. SECTIONS
 =========================================================================== */ 
 
-/* === TITRES DE SECTIONS ================================================== */
+section {
+    padding: 1.5rem;
+}
+
+/* === SECTIONS TITLE ================================================== */
 .section-title {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
@@ -434,7 +438,6 @@ button {
     color: var(--text);
     text-transform: uppercase;
 }
-
 
 /* === SECTION HERO ================================================== */
 #hero-section {
@@ -842,6 +845,10 @@ button {
 @media (min-width: 768px) {
     body {
         font-size: 18px;
+    }
+
+    section {
+        padding: 2.5rem 4em;
     }
 
     .main-nav .navbar {
