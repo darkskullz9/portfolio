@@ -414,11 +414,42 @@ button {
 .social-icon {
     width: 1.5rem;
     height: 1.5rem;
+    filter: brightness(0) 
+            saturate(100%) 
+            invert(22%) 
+            sepia(77%) 
+            saturate(2613%) 
+            hue-rotate(250deg) 
+            brightness(98%) 
+            contrast(102%);
+    transition: filter 300ms ease, transform 200ms ease-in-out;
 }
 
-.social-link:hover {
+[data-theme="dark"] .social-icon {
+    filter: brightness(0) 
+            saturate(100%) 
+            invert(96%) 
+            sepia(6%) 
+            saturate(1500%) 
+            hue-rotate(250deg) 
+            brightness(105%) 
+            contrast(96%);
+}
+
+.social-link:hover .social-icon {
     transform: scale(1.1);
-    transition: transform 200ms ease-in-out;
+    filter: brightness(1.2);
+}
+
+[data-theme="dark"] .social-link:hover .social-icon {
+    filter: brightness(0) 
+            saturate(100%) 
+            invert(96%) 
+            sepia(6%) 
+            saturate(1500%) 
+            hue-rotate(250deg) 
+            brightness(120%) 
+            contrast(96%);
 }
 
 /* ===========================================================================
