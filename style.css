@@ -454,7 +454,7 @@ button {
     font-weight: 700;
     color: var(--text);
     text-transform: uppercase;
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 8vw, 4rem);
     margin-bottom: 1rem;
 }
 
@@ -686,10 +686,16 @@ button {
 .skills-grid {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
     list-style: none;
+}
+
+@media (min-width: 481px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .skills-item {
