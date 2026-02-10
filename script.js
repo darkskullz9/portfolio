@@ -228,13 +228,27 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
     });
+} else {
+    // Fallback for browsers without IntersectionObserver
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+    });
 }
 
-// === Log page load performance ===
+// === Performance Monitoring ===
 window.addEventListener('load', () => {
-    if (window.performance) {
-        const perfData = window.performance.timing;
-        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-        console.log(`Page load time: ${pageLoadTime}ms`);
+    if ('PerformanceObserver' in window) {
+        const observer = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+                if (entry.entryType === 'navigation') {
+                    console.log(`Page load time: ${Math.round(entry.loadEventEnd - entry.fetchStart)}ms`);
+                    console.log(`DOM Interactive: ${Math.round(entry.domInteractive - entry.fetchStart)}ms`);
+                    console.log(`DOM Complete: ${Math.round(entry.domComplete - entry.fetchStart)}ms`);
+                }
+            }
+        });
+        
+        observer.observe({ entryTypes: ['navigation']});
     }
 });

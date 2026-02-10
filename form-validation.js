@@ -161,11 +161,20 @@ if (contactForm) {
                         if (input) removeError(input);
                     });
                 } else {
-                    throw new Error('Erreur lors de l\'envoi');
+                    // HTTP errors (4xx, 5xx)
+                    const errorData = await response.json().catch(() => ({}));
+                    console.error('HTTP error:', response.status, errorData);
+                    throw new Error(`Erreur HTTP ${response.status}`);
                 }
             } catch (error) {
-                // Error message
-                showMessage('\u2715 Une erreur est survenue. Veuillez réessayer ou m\'envoyer un email directement.', 'error');
+                // Network + HTTP errors
+                if (error.name === 'TypeError') {
+                    // Network error (e.g., CORS, connectivity)
+                    showMessage('✗ Problème de connexion. Veuillez vérifier votre réseau et réessayer.', 'error');
+                } else {
+                    // Other errors (e.g., HTTP errors, etc.)
+                    showMessage('✗ Une erreur est survenue. Veuillez réessayer ou m\'envoyer un email directement.', 'error');
+                }
                 console.error('Form submission error:', error);
             } finally {
                 // Reset button
