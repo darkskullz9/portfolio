@@ -519,6 +519,46 @@ section {
     margin-top: 1rem;
 }
 
+#hero-section .button {
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+#hero-section .button:hover {
+    transform: translateY(-2px);
+}
+
+#hero-section .button-primary {
+    background-color: var(--primary);
+    color: var(--highlight);
+    border: 2px solid var(--primary);
+}
+
+#hero-section .hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    list-style: none;
+}
+
+#hero-section .hero-highlights li {
+    padding: 0.4rem 0.75rem;
+    background-color: var(--bg);
+    color: var(--text-muted);
+    border: 2px solid var(--border-muted);
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
 /* === SECTION À PROPOS ================================================== */
 #about-section {
     width: 100vw;
