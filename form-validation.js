@@ -6,6 +6,7 @@
 const contactForm = document.querySelector('.contact-form');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
+const requestTypeSelect = document.getElementById('request-type');
 const messageTextarea = document.getElementById('message');
 
 // Validation patterns
@@ -60,6 +61,7 @@ function validateField(input, validationFn, errorMessage) {
 const validators = {
     name: (value) => value.length >= 2 && namePattern.test(value),
     email: (value) => emailPattern.test(value),
+    requestType: (value) => value.length > 0,
     message: (value) => value.length >= 10
 };
 
@@ -101,7 +103,7 @@ if (messageTextarea) {
 }
 
 // Clear error on input
-[nameInput, emailInput, messageTextarea].forEach(input => {
+[nameInput, emailInput, requestTypeSelect, messageTextarea].forEach(input => {
     if (input) {
         input.addEventListener('input', () => {
             if (input.classList.contains('error')) {
@@ -127,6 +129,13 @@ if (contactForm) {
             validators.email,
             'Veuillez entrer une adresse e-mail valide. (ex: exemple@domaine.com)'
         );
+
+        const isRequstTypeValid = validateField(
+            requestTypeSelect,
+            validators.requestType,
+            'Veuillez choisir un type de demande.'
+        );
+
         const isMessageValid = validateField(
             messageTextarea,
             validators.message,
@@ -134,7 +143,7 @@ if (contactForm) {
         );
 
         // If all valid, submit
-        if (isNameValid && isEmailValid && isMessageValid) {
+        if (isNameValid && isEmailValid && isRequstTypeValid && isMessageValid) {
             // Show loading state
             const submitButton = contactForm.querySelector('.contact-button');
             const originalText = submitButton.textContent;
@@ -157,7 +166,7 @@ if (contactForm) {
                     showMessage('✓ Message envoyé avec succès ! Je vous répondrai bientôt.', 'success');
                     contactForm.reset();
                     // Remove any remaining errors
-                    [nameInput, emailInput, messageTextarea].forEach(input => {
+                    [nameInput, emailInput, requestTypeSelect, messageTextarea].forEach(input => {
                         if (input) removeError(input);
                     });
                 } else {
