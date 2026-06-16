@@ -68,10 +68,13 @@ window.addEventListener('DOMContentLoaded', () => {
 function setMainPaddingTop() {
     const header = document.querySelector(".header");
     const main = document.querySelector("main");
+
     if (header && main) {
         const headerHeight = header.offsetHeight;
+
         main.style.paddingTop = headerHeight + "px";
         document.documentElement.style.scrollPaddingTop = headerHeight + "px";
+        document.documentElement.style.setProperty("--header-height", headerHeight + "px");
     }
 }
 
@@ -95,7 +98,7 @@ window.addEventListener("resize", debounce(setMainPaddingTop, 150));
 
 // === Hamburger Menu Toggle ===
 const hamburger = document.querySelector('.hamburger');
-const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector('.main-nav .navbar');
 
 if (hamburger && navbar) {
     // Toggle menu on click
@@ -105,7 +108,7 @@ if (hamburger && navbar) {
         hamburger.setAttribute('aria-expanded', isOpen);
 
         // Prevent body scroll when menu is open on mobile
-        if (window.innerWidth < 900) {
+        if (window.innerWidth < 1024) {
             document.body.style.overflow = isOpen ? 'hidden' : '';
         }
     });
@@ -144,7 +147,7 @@ if (hamburger && navbar) {
 
     // Reset body overflow on window resize
     window.addEventListener('resize', debounce(() => {
-        if (window.innerWidth >= 900) {
+        if (window.innerWidth >= 1024) {
             document.body.style.overflow = '';
             navbar.classList.remove('open');
             hamburger.classList.remove('active');
@@ -166,9 +169,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
 
         const target = document.querySelector(href);
+
         if (target) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            const header = document.querySelector('.header');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const targetPosition = target.offsetTop - headerHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         }
     });
 });
@@ -177,35 +189,63 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.navlink[href^="#"]');
+    const header = document.querySelector('.header');
+
+    function clearActiveLinks() {
+        navLinks.forEach(link => link.classList.remove('active'));
+    }
+
+    function setActiveLink(sectionId) {
+        clearActiveLinks();
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
 
     function highlightNavigation() {
-        const scrollPosition = window.scrollY + 100; // Offset for fixed header
+        const headerHeight = header ? header.offsetHeight : 0;
+        const detectionPoint = window.scrollY + headerHeight + window.innerHeight * 0.35;
+
+        let currentSectionId = null;
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+            const sectionBottom = sectionTop + section.offsetHeight;
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+            if (detectionPoint >= sectionTop && detectionPoint < sectionBottom) {
+                currentSectionId = section.getAttribute('id');
             }
         });
 
-        // Handle top of page
-        if (window.scrollY < 100) {
-            navLinks.forEach(link => link.classList.remove('active'));
+        if (window.scrollY < 50) {
+            clearActiveLinks();
+            return;
+        }
+
+        if (currentSectionId) {
+            setActiveLink(currentSectionId);
         }
     }
 
-    // Run on scroll with debounce
-    window.addEventListener('scroll', debounce(highlightNavigation, 100));
+    let ticking = false;
 
-    // Run once on load
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                highlightNavigation();
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', debounce(highlightNavigation, 150));
+
     highlightNavigation();
 });
 

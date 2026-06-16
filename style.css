@@ -244,6 +244,7 @@ button {
 
 .header {
     width: 100%;
+    min-height: 72px;
     padding: 0.7em 1em;
     background-color: var(--bg-light);
     border-bottom: 1px solid var(--border);
@@ -275,20 +276,36 @@ button {
 
 .navbar {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
-    z-index: 110;
-    gap: 1.2rem;
-    padding: 1.5rem 0;
     list-style: none;
 }
 
-.navbar.open {
+.main-nav .navbar {
+    position: fixed;
+    top: var(--header-height, 72px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: calc(100dvh - var(--header-height, 72px));
+    padding: 3rem 1.5rem;
+    background-color: var(--bg);
+    border-top: 1px solid var(--border-muted);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    z-index: 90;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+}
+
+.main-nav .navbar.open {
     display: flex;
+}
+
+.main-nav .navbar .navlink {
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0.85;
 }
 
 .hamburger {
@@ -464,7 +481,7 @@ section {
     width: 100%;
     min-height: auto;
     height: auto;
-    padding: clamp(5rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+    padding: clamp(2.5rem, 4vw, 4rem) clamp(1.5rem, 6vw, 5rem);
     background-color: var(--bg-dark);
     display: grid;
     grid-template-rows: auto 1fr;
@@ -474,7 +491,7 @@ section {
 }
 
 .section-balanced {
-    min-height: 70vh;
+    min-height: clamp(520px, 60vh, 680px);
 }
 
 .section-content {
@@ -488,13 +505,14 @@ section {
 }
 
 .section-balanced .section-content {
-    align-self: center;
+    align-self: start;
+    padding-top: clamp(1rem, 4vh, 3rem);
 }
 
 /* === SECTIONS TITLE ================================================== */
 .section-title {
     width: fit-content;
-    margin: 0 0 clamp(2rem, 5vw, 4rem);
+    margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
     padding: 0.35rem 0.8rem;
     background-color: var(--bg);
     border: 1px solid var(--border);
@@ -646,6 +664,7 @@ section {
 .service-card {
     display: flex; 
     flex-direction: column;
+    min-height: 320px;
     gap: 1rem;
     padding: 1.25rem;
     background-color: var(--bg);
@@ -964,6 +983,7 @@ section {
 .contact-button {
     width: 100%;
     padding: 0.75rem;
+    margin-top: 0.5rem;
     font-size: 1rem;
     font-weight: 700;
     color: var(--highlight);
@@ -987,6 +1007,28 @@ section {
 /* ===========================================================================
      6. RESPONSIVE DESIGN
 =========================================================================== */ 
+
+/* === MOBILE STYLES (768px+) ============================================= */
+@media (max-width: 480px) {
+    .header {
+        padding: 0.8rem 1rem;
+    }
+
+    .header .logo {
+        font-size: 1rem;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        margin-right: 0;
+    }
+
+    .hamburger {
+        width: 40px;
+        height: 40px;
+    }
+}
 
 /* === TABLET STYLES (768px+) ============================================= */
 @media (min-width: 768px) {
@@ -1056,6 +1098,26 @@ section {
         padding: 0;
     }
 
+    .main-nav .navbar {
+        display: flex;
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: auto;
+        min-height: auto;
+        padding: 0;
+        background-color: transparent;
+        border-top: none;
+        box-shadow: none;
+        z-index: auto;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 3em;
+    }
+
     .navlink {
         display: flex;
         align-items: center;
@@ -1096,15 +1158,24 @@ section {
         font-size: 1.5rem;
     }
 
-    .contact-content {
+    #contact-section .contact-content {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        align-content: center;
-        gap: 4rem;
+        gap: clamp(3rem, 6vw, 6rem);
     }
 
+    #contact-section .contact-info {
+        flex: 1;
+        max-width: 560px;
+    }
+
+    #contact-section .contact-form {
+        flex: 1;
+        max-width: 520px;
+    }
+    
     .footer {
         flex-direction: row;
     }
