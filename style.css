@@ -113,6 +113,7 @@ body,
 .header,
 .footer,
 .card,
+.service-card,
 .skills-item,
 .navbar,
 .navlink,
@@ -387,7 +388,7 @@ button {
 
 .footer-copy {
     font-size: 0.875rem;
-    color: var(--text-color);
+    color: var(--text-muted);
     opacity: 60%;
 }
 
@@ -458,14 +459,53 @@ section {
     padding: 1.5rem;
 }
 
+/* === SECTIONS MAIN SRUCTURE =============================== */
+.page-section {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    padding: clamp(5rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+    background-color: var(--bg-dark);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    text-align: left;
+    scroll-margin-top: 90px;
+}
+
+.section-balanced {
+    min-height: 70vh;
+}
+
+.section-content {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.section-content-small {
+    max-width: 760px;
+}
+
+.section-balanced .section-content {
+    align-self: center;
+}
+
 /* === SECTIONS TITLE ================================================== */
 .section-title {
+    width: fit-content;
+    margin: 0 0 clamp(2rem, 5vw, 4rem);
+    padding: 0.35rem 0.8rem;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     display: flex;
     align-self: flex-start;
     color: var(--text);
     text-transform: uppercase;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1;
 }
 
 /* === SECTION HERO ================================================== */
@@ -542,6 +582,17 @@ section {
     border: 2px solid var(--primary);
 }
 
+#hero-section .button-secondary {
+    background-color: transparent;
+    color: var(--text);
+    border: 2px solid var(--border);
+}
+
+#hero-section .button-secondary:hover {
+    background-color: var(--bg);
+    border-color: var(--primary);
+}
+
 #hero-section .hero-highlights {
     display: flex;
     flex-wrap: wrap;
@@ -561,45 +612,20 @@ section {
 }
 
 /* === SECTION À PROPOS ================================================== */
-#about-section {
-    width: 100%;
-    min-height: 100vh;
+#about-section .about-content {
     height: auto;
-    padding: 2.5em;
-    background-color: var(--bg-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
+    display: block;
 }
 
-.about-content {
-    width: 100%;
-    height: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.about-text {
-    max-width: 800px;
+#about-section .about-text {
+    max-width: 760px;
     text-align: left;
+    line-height: 1.8;
 }
 
 /* === SECTION SERVICES ================================================= */
-
-#services-section {
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
-    padding: 2.5rem 2.5em;
-    background-color: var(--bg-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
+#services-section .services-content {
+    align-self: start;
 }
 
 #services-section .section-intro {
@@ -607,6 +633,7 @@ section {
     margin-bottom: 2rem;
     color: var(--text-muted);
     font-size: 1rem;
+    line-height: 1.7;
 }
 
 .services-grid {
@@ -655,22 +682,9 @@ section {
 
 /* === SECTION PROJETS ================================================== */
 
-#projects-section {
+#projects-section .projects-content {
     width: 100%;
-    min-height: 100vh;
-    height: auto;
-    padding: 2.5rem 2.5em;
-    background-color: var(--bg-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.projects-content {
-    display: flex;
-    align-items: flex-start;
+    display: block;
 }
 
 .projects-grid {
@@ -823,26 +837,10 @@ section {
 }
 
 /* === SECTION SKILLS ================================================== */
-
-#skills-section {
+#skills-section .skills-content {
     width: 100%;
-    min-height: 100vh;
     height: auto;
-    padding: 2.5rem 2.5em;
-    background-color: var(--bg-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.skills-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 }
 
 .skills-grid {
@@ -889,23 +887,9 @@ section {
 }
 
 /* ==== CONTACT SECTION ==== */
-
-#contact-section {
+#contact-section .contact-content {
     width: 100%;
-    min-height: 100vh;
     height: auto;
-    padding: 2.5rem 2.5em;
-    background-color: var(--bg-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.contact-content {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1081,10 +1065,6 @@ section {
         display: none;
     }
 
-    .main {
-        padding-top: 70px;
-    }
-
     #hero-section {
         min-height: 100vh;
         padding: 0;
@@ -1114,10 +1094,6 @@ section {
 
     .skill-label {
         font-size: 1.5rem;
-    }
-
-    #contact-section {
-        height: 100vh;
     }
 
     .contact-content {
@@ -1327,12 +1303,14 @@ section {
 
 /* === INPUTS ERROR STATES === */
 .contact-input.error,
+.contact-select.error,
 .contact-textarea.error {
     border-color: var(--danger);
     background-color: rgba(186, 13, 1, 0.05);
 }
 
 [data-theme="dark"] .contact-input.error,
+[data-theme="dark"] .contact-select.error,
 [data-theme="dark"] .contact-textarea.error {
     background-color: rgba(255, 65, 54, 0.1);
 }
