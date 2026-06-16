@@ -117,6 +117,7 @@ body,
 .navbar,
 .navlink,
 .contact-input,
+.contact-select,
 .contact-textarea,
 .contact-button {
     transition: background-color 300ms ease, 
@@ -241,7 +242,7 @@ button {
 /* ==== HEADER & NAVIGATION ==== */
 
 .header {
-    width: 100vw;
+    width: 100%;
     padding: 0.7em 1em;
     background-color: var(--bg-light);
     border-bottom: 1px solid var(--border);
@@ -277,7 +278,7 @@ button {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100vw;
+    width: 100%;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
     z-index: 110;
     gap: 1.2rem;
@@ -354,7 +355,7 @@ button {
 
 /* ==== FOOTER ==== */
 .footer {
-    width: 100vw;
+    width: 100%;
     padding: 1em 1.5em;
     background-color: var(--bg-light);
     border-top: 1px solid var(--border-muted);
@@ -469,7 +470,7 @@ section {
 
 /* === SECTION HERO ================================================== */
 #hero-section {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: auto;
     display: flex;
@@ -561,7 +562,7 @@ section {
 
 /* === SECTION À PROPOS ================================================== */
 #about-section {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: auto;
     padding: 2.5em;
@@ -655,7 +656,7 @@ section {
 /* === SECTION PROJETS ================================================== */
 
 #projects-section {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: auto;
     padding: 2.5rem 2.5em;
@@ -824,7 +825,7 @@ section {
 /* === SECTION SKILLS ================================================== */
 
 #skills-section {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: auto;
     padding: 2.5rem 2.5em;
@@ -890,7 +891,7 @@ section {
 /* ==== CONTACT SECTION ==== */
 
 #contact-section {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     height: auto;
     padding: 2.5rem 2.5em;
