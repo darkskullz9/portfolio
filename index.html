@@ -422,56 +422,96 @@
             </section>
 
             <!-- === CONTACT SECTION === -->
-            <section id="contact-section" class="page-section section-balanced">
+            <section id="contact-section" class="page-section">
                 <h2 class="section-title">Contact</h2>
 
                 <div class="contact-content section-content">
                     <div class="contact-info">
+                        <p class="contact-kicker">Discutons de ton projet</p>
+
                         <p class="contact-text">
                             Besoin d’un site web, d’un dépannage informatique ou d’un PC sur mesure ? <br />
                             Décris ton besoin et je te répondrai avec une première piste claire.
                         </p>
 
-                        <div class="contact-methods">
-                            <p>
-                                <strong>Email :</strong> 
-                                <a href="mailto:darxkullz9@gmail.com">darxkullz9@gmail.com</a>
-                            </p>
+                        <div class="contact-cards">
+                            <article class="contact-card">
+                                <h3 class="contact-card-title">Demandes possibles</h3>
 
-                            <p>
-                                <strong>GitHub :</strong> 
-                                <a href="https://github.com/darkskullz9" target="_blank" rel="noopener">github.com/darkskullz9</a>
-                            </p>
+                                <ul class="contact-card-list">
+                                    <li>Création de site web</li>
+                                    <li>Maintenance informatique</li>
+                                    <li>Conseil ou montage PC</li>
+                                    <li>Amélioration d’un projet existant</li>
+                                </ul>
+                            </article>
+
+                            <article class="contact-card">
+                                <h3 class="contact-card-title">Me contacter directement</h3>
+
+                                <div class="contact-methods">
+                                    <p>
+                                        <strong>Email :</strong> 
+                                        <a href="mailto:darxkullz9@gmail.com">darxkullz9@gmail.com</a>
+                                    </p>
+    
+                                    <p>
+                                        <strong>GitHub :</strong> 
+                                        <a href="https://github.com/darkskullz9" target="_blank" rel="noopener">github.com/darkskullz9</a>
+                                    </p>
+                                </div>
+                            </article>
                         </div>
                     </div>
 
                     <form action="https://formspree.io/f/mgvgyvny" method="POST" class="contact-form">
-                    <!-- Contact form fields here -->
-                        <label for="name" class="contact-label" >Nom :</label>
-                        <input type="text" id="name" name="name" required class="contact-input" placeholder="John Doe"/>
+                        <input type="hidden" name="_subject" value="Nouvelle demande depuis le portfolio Darkskullz9" />
 
-                        <label for="email" class="contact-label">Email :</label>
-                        <input type="email" id="email" name="email" required class="contact-input" placeholder="johndoe@example.com"/>
+                        <div class="form-group">
+                            <label for="name" class="contact-label" >Nom :</label>
+                            <input type="text" id="name" name="name" required class="contact-input" placeholder="John Doe"/>
+                        </div>
 
-                        <label for="request-type" class="contact-label">Type de demande :</label>
-                        <select id="request-type" name="request-type" required class="contact-select">
-                            <option value="">Choisir une option</option>
-                            <option value="site-web">Création de site web</option>
-                            <option value="maintenance">Maintenance informatique</option>
-                            <option value="pc-sur-mesure">PC sur mesure</option>
-                            <option value="autre">Autre demande</option>
-                        </select>
+                        <div class="form-group">
+                            <label for="email" class="contact-label">Email :</label>
+                            <input type="email" id="email" name="email" required class="contact-input" placeholder="johndoe@example.com"/>
+                        </div>
 
-                        <label for="message" class="contact-label">Message :</label>
-                        <textarea 
-                            id="message" 
-                            name="message" 
-                            rows="5" 
-                            required class="contact-textarea" 
-                            placeholder="Explique ton besoin, ton budget approximatif, ton délai ou le problème rencontré..."
-                        ></textarea>
+                        <div class="form-group">
+                            <label for="request-type" class="contact-label">Type de demande :</label>
+                            <select id="request-type" name="request-type" required class="contact-select">
+                                <option value="">Choisir une option</option>
+                                <option value="site-web">Création de site web</option>
+                                <option value="maintenance">Maintenance informatique</option>
+                                <option value="pc-sur-mesure">PC sur mesure</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
 
-                        <button type="submit" class="contact-button">Envoyer</button>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="budget" class="contact-label">Budget :</label>
+                                <input type="text" id="budget" name="budget" class="contact-input" placeholder="Ex : 100 € / 300 € / à définir" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deadline" class="contact-label">Délai :</label>
+                                <input type="text" id="deadline" name="deadline" class="contact-input" placeholder="Ex : urgent / 2 semaines / flexible" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="contact-label">Message :</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="5" 
+                                required class="contact-textarea" 
+                                placeholder="Explique ton besoin, ton budget approximatif, ton délai ou le problème rencontré..."
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="contact-button">Envoyer ma demande</button>
                     </form>
                 </div>
             </section>
