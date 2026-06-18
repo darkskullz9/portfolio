@@ -208,29 +208,41 @@ window.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 });
 
-// === Lazy Loading Images (Performance Optimization) ===
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            }
-        });
-    });
+// === Load form validation only when needed ===
+window.addEventListener('load', () => {
+    const contactForm = document.querySelector('.contact-form');
 
-    // Observe all images with data-src attribute
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-} else {
-    // Fallback for browsers without IntersectionObserver
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        img.src = img.dataset.src;
-        img.removeAttribute('data-src');
-    });
-}
+    if (!contactForm) return;
+
+    let formValidationLoaded = false;
+
+    function loadFormValidation() {
+        if (formValidationLoaded) return;
+
+        formValidationLoaded = true;
+
+        const script = document.createElement('script');
+        script.src = 'form-validation.min.js';
+        script.defer = true;
+        document.body.appendChild(script);
+    }
+
+    if ('IntersectionObserver' in window) {
+        const formObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadFormValidation();
+                    observer.disconnect();
+                }
+            });
+        }, {
+            rootMargin: '400px'
+        });
+
+        formObserver.observe(contactForm);
+    } else {
+        loadFormValidation();
+    }
+
+    contactForm.addEventListener('focusin', loadFormValidation, { once: true });
+});
