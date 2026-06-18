@@ -35,6 +35,7 @@
     src: url('./fonts/Neotrax.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* ==========================================================================
@@ -335,8 +336,8 @@ button {
 .navlink {
     padding: 0;
     text-decoration: none;
-    color: var(--text);
-    opacity: 50%;
+    color: var(--text-muted);
+    opacity: 1;
     font-size: 1rem;
     font-weight: 500;
     display: inline-block;
