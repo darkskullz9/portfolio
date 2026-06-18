@@ -63,21 +63,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-// === Adjust main padding to header height ===
-function setMainPaddingTop() {
-    const header = document.querySelector(".header");
-    const main = document.querySelector("main");
-
-    if (header && main) {
-        const headerHeight = header.offsetHeight;
-
-        main.style.paddingTop = headerHeight + "px";
-        document.documentElement.style.scrollPaddingTop = headerHeight + "px";
-        document.documentElement.style.setProperty("--header-height", headerHeight + "px");
-    }
-}
-
 // Debounce function to optimize performance
 function debounce(func, wait) {
     let timeout;
@@ -90,11 +75,6 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-
-// Initial call and event listener for window resize
-window.addEventListener("DOMContentLoaded", setMainPaddingTop);
-window.addEventListener("resize", debounce(setMainPaddingTop, 150));
-
 
 // === Hamburger Menu Toggle ===
 const hamburger = document.querySelector('.hamburger');
@@ -173,13 +153,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             e.preventDefault();
 
-            const header = document.querySelector('.header');
-            const headerHeight = header ? header.offsetHeight : 0;
-            const targetPosition = target.offsetTop - headerHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
@@ -187,9 +163,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // === Active Navigation Link highlight ===
 window.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.navlink[href^="#"]');
-    const header = document.querySelector('.header');
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.main-nav .navlink[href^="#"]');
 
     function clearActiveLinks() {
         navLinks.forEach(link => link.classList.remove('active'));
@@ -205,48 +180,32 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function highlightNavigation() {
-        const headerHeight = header ? header.offsetHeight : 0;
-        const detectionPoint = window.scrollY + headerHeight + window.innerHeight * 0.35;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
 
-        let currentSectionId = null;
+            const sectionId = entry.target.getAttribute('id');
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionBottom = sectionTop + section.offsetHeight;
-
-            if (detectionPoint >= sectionTop && detectionPoint < sectionBottom) {
-                currentSectionId = section.getAttribute('id');
+            if (sectionId === 'hero-section') {
+                clearActiveLinks();
+                return;
             }
-        });
 
+            setActiveLink(sectionId);
+        });
+    }, {
+        root: null,
+        rootMargin: '-35% 0px -50% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    window.addEventListener('scroll', () => {
         if (window.scrollY < 50) {
             clearActiveLinks();
-            return;
         }
-
-        if (currentSectionId) {
-            setActiveLink(currentSectionId);
-        }
-    }
-
-    let ticking = false;
-
-    function onScroll() {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                highlightNavigation();
-                ticking = false;
-            });
-
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', debounce(highlightNavigation, 150));
-
-    highlightNavigation();
+    }, { passive: true });
 });
 
 // === Lazy Loading Images (Performance Optimization) ===

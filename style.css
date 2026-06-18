@@ -58,29 +58,6 @@
 }
 
 /* Rajdhani - titres / boutons */
-@font-face {
-    font-family: 'Rajdhani';
-    src: url('./fonts/Rajdhani-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Rajdhani';
-    src: url('./fonts/Rajdhani-Medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Rajdhani';
-    src: url('./fonts/Rajdhani-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
 
 @font-face {
     font-family: 'Rajdhani';
@@ -130,6 +107,8 @@
     --vite-color: #646CFF;               /* Vite - Bleu violet */
     --figma-color: #F24E1E;              /* Figma - Rouge */
     --no-code-color: #ccc;               /* No-Code - Gris */
+
+    --header-height: 72px;
 }
 
 /* --- Dark Theme --- */
@@ -198,6 +177,7 @@ body,
 html {
     font-size: 16px;                /* Base font size pour rem */
     scroll-behavior: smooth;        /* Scroll fluide pour ancres */
+    scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -206,6 +186,10 @@ body {
     color: var(--text-muted);
     line-height: 1.6;
     overflow-x: hidden;           /* Evite scroll horizontal */
+}
+
+main {
+    padding-top: var(--header-height);
 }
 
 /* === TYPOGRAPHIE DES TITRES ============================================== */
@@ -219,7 +203,7 @@ h1 {
 
 h2 {
     font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text);
     font-size: 2rem;
 }
@@ -461,7 +445,7 @@ button {
 .footer-copy {
     font-size: 0.875rem;
     color: var(--text-muted);
-    opacity: 60%;
+    opacity: 1;
 }
 
 .socials-list {
@@ -568,7 +552,7 @@ button {
     background-color: var(--bg);
     border: 1px solid var(--border);
     font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-self: flex-start;
     color: var(--text);
@@ -818,21 +802,39 @@ button {
 }
 
 .badge--progress {
-    color: var(--info);
-    background-color: rgba(5, 89, 210, 0.12);
-    border-color: var(--info);
+    color: #052e6f;
+    background-color: #d9e8ff;
+    border-color: #0559d2;
 }
 
 .badge--done {
-    color: var(--success);
-    background-color: rgba(0, 130, 55, 0.12);
-    border-color: var(--success);
+    color: #064e26;
+    background-color: #ddf8e8;
+    border-color: #008237;
 }
 
 .badge--wip {
-    color: var(--warning);
-    background-color: rgba(128, 96, 0, 0.12);
-    border-color: var(--warning);
+    color: #4a3500;
+    background-color: #fff0b8;
+    border-color: #806000;
+}
+
+[data-theme="dark"] .badge--progress {
+    color: #dceaff;
+    background-color: #12366e;
+    border-color: #5c9eff;
+}
+
+[data-theme="dark"] .badge--done {
+    color: #d8ffe9;
+    background-color: #12472a;
+    border-color: #00d97e;
+}
+
+[data-theme="dark"] .badge--wip {
+    color: #fff2bf;
+    background-color: #4a3500;
+    border-color: #ffb700;
 }
 
 .project-header {
@@ -896,7 +898,7 @@ button {
 
 .html-tag {
     background-color: var(--html-color);
-    color: #fff;
+    color: #000;
 }
 
 .css-tag {
@@ -947,10 +949,16 @@ button {
 }
 
 .card-action--disabled {
-    background-color: rgba(247, 70, 70, 0.2);
-    color: rgba(247, 80, 70, 1);
-    border: 2px solid rgba(247, 80, 70, 1);
-    opacity: 0.6;
+    background-color: #ffd8d5;
+    color: #7a140f;
+    border: 2px solid #ba0d01;
+    opacity: 1;
+}
+
+[data-theme="dark"] .card-action--disabled {
+    background-color: #4a1714;
+    color: #ffd8d5;
+    border-color: #ff4136;
 }
 
 .card-action--disabled:hover {
@@ -1286,6 +1294,10 @@ button {
 
 /* === DESKTOP STYLES (1024px+) ============================================ */
 @media (min-width: 1024px) {
+    :root {
+        --header-height: 80px;
+    }
+
     body {
         font-size: 1.25rem;
     }
