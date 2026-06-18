@@ -1,0 +1,25 @@
+{
+    "name": "Darkskullz9 - Portfolio",
+    "short_name": "Darkskullz9",
+    "description": "Portfolio de Darkskullz9 : développement web, maintenance informatique et PC sur mesure.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#0a0619",
+    "theme_color": "#24005c",
+    "icons": [
+        {
+            "src": "/images/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}
