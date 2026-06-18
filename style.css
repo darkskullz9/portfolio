@@ -735,8 +735,10 @@ button {
 
 .card-thumbnail {
     width: 100%;
+    height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    object-position: center;
     border: var(--border-muted) 1px solid;
     border-radius: 4px;
 }
