@@ -34,7 +34,7 @@
 /* Logo font */
 @font-face {
     font-family: 'Neotrax';
-    src: url('./fonts/Neotrax.ttf') format('truetype');
+    src: url('./fonts/Neotrax.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -1656,45 +1656,11 @@ button {
     }
 }
 
-/* Fade in sections on load */
-section {
-    animation: fadeIn 600ms ease-out;
-}
-
-/* Hero section elements */
-.hero-name {
-    animation: fadeIn 800ms ease-out;
-}
-
+/* Lightweight hero animation only */
+.hero-name,
 #hero-section .tagline {
-    animation: fadeIn 1000ms ease-out;
-    animation-delay: 200ms;
-    animation-fill-mode: backwards;
-}
-
-/* Stagger project cards */
-.projects-grid .card {
-    animation: fadeIn 600ms ease-out;
-    animation-fill-mode: backwards;
-}
-
-.projects-grid .card:nth-child(1) { animation-delay: 100ms; }
-.projects-grid .card:nth-child(2) { animation-delay: 200ms; }
-.projects-grid .card:nth-child(3) { animation-delay: 300ms; }
-.projects-grid .card:nth-child(4) { animation-delay: 400ms; }
-.projects-grid .card:nth-child(5) { animation-delay: 500ms; }
-.projects-grid .card:nth-child(6) { animation-delay: 600ms; }
-
-/* Fade in skills categories */
-.skills-categories .skill-category {
     animation: fadeIn 500ms ease-out;
-    animation-fill-mode: backwards;
 }
-
-.skills-categories .skill-category:nth-child(1) { animation-delay: 100ms; }
-.skills-categories .skill-category:nth-child(2) { animation-delay: 200ms; }
-.skills-categories .skill-category:nth-child(3) { animation-delay: 300ms; }
-.skills-categories .skill-category:nth-child(4) { animation-delay: 400ms; }
 
 /* ===========================================================================
     11. UTILITY CLASSES 
