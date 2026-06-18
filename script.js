@@ -234,20 +234,3 @@ if ('IntersectionObserver' in window) {
         img.removeAttribute('data-src');
     });
 }
-
-// === Performance Monitoring ===
-window.addEventListener('load', () => {
-    if ('PerformanceObserver' in window) {
-        const observer = new PerformanceObserver((list) => {
-            for (const entry of list.getEntries()) {
-                if (entry.entryType === 'navigation') {
-                    console.log(`Page load time: ${Math.round(entry.loadEventEnd - entry.fetchStart)}ms`);
-                    console.log(`DOM Interactive: ${Math.round(entry.domInteractive - entry.fetchStart)}ms`);
-                    console.log(`DOM Complete: ${Math.round(entry.domComplete - entry.fetchStart)}ms`);
-                }
-            }
-        });
-        
-        observer.observe({ entryTypes: ['navigation']});
-    }
-});
