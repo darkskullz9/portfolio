@@ -29,11 +29,63 @@
     1. IMPORTS & FONTS
 ========================================================================== */
 
-/* Custom Font - Neotrax (logo) */
+/* === LOCAL FONTS ===================================================== */
+
+/* Logo font */
 @font-face {
     font-family: 'Neotrax';
     src: url('./fonts/Neotrax.ttf') format('truetype');
     font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Inter - texte principal */
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Italic-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Rajdhani - titres / boutons */
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('./fonts/Rajdhani-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('./fonts/Rajdhani-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('./fonts/Rajdhani-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('./fonts/Rajdhani-Bold.woff2') format('woff2');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
