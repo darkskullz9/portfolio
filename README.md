@@ -1,7 +1,13 @@
-# Portfolio — Darkskullz9
+# Darkskullz9 — Portfolio
 
-Portfolio personnel de Steven Prauca,
-étudiant en BTS SIO SLAM.
+Portfolio personnel de Steven Prauca, étudiant en BTS SIO
+option SLAM.
+
+## Présentation
+
+Ce projet présente mon parcours, mes compétences, mes projets
+et mes réalisations dans le domaine du développement web et
+informatique.
 
 ## Technologies
 
@@ -10,28 +16,40 @@ Portfolio personnel de Steven Prauca,
 - JavaScript
 - Git
 - GitHub
+- Netlify
 
 ## Fonctionnalités
 
-- Responsive design
-- Dark / Light mode
+- Design responsive
+- Thème clair / sombre
+- Navigation mobile
 - Formulaire de contact
 - Validation JavaScript
+- Lazy loading
 - SEO
-- PWA
-
-## Installation
-
-...
+- Open Graph
+- Web Manifest / PWA
 
 ## Architecture
 
-...
-
-## Déploiement
-
-...
-
-## Auteur
-
-Steven Prauca
+```text
+/
+├── index.html
+├── README.md
+├── robots.txt
+├── site.webmanifest.json
+├── sitemap.xml
+└── assets/
+    ├── og-image.png
+    ├── preview.png
+    ├── css/
+    │   ├── style.css
+    │   └── style.min.css
+    ├── fonts/
+    ├── icons/
+    ├── images/
+    └── js/
+        ├── form-validation.js
+        ├── form-validation.min.js
+        ├── script.js
+        └── script.min.js
